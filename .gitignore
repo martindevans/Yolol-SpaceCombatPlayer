@@ -1,0 +1,16 @@
+/_ReSharper.Caches
+.vs
+build
+Library
+Logs
+Obj
+
+*.user
+
+## Purchased Assets
+Assets/KriptoFX
+Assets/Modern UI Pack
+Assets/Shapes
+Assets/Space Graphics Toolkit
+Assets/Starfield Skybox
+Assets/tripolygon
