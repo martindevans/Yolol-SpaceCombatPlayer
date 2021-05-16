@@ -14,18 +14,16 @@ namespace Assets.Scripts.Curves
         private Light _light;
         public bool State { get; private set; }
 
-        private void OnEnable()
+        [UsedImplicitly] private void OnEnable()
         {
             _light = GetComponentsInChildren<Light>(true).SingleOrDefault(a => a.gameObject.name.Contains("Running Light"));
         }
 
         public void LoadCurve(JToken curve)
         {
-            var name = curve["Name"].Value<string>();
             var type = curve["Type"].Value<string>();
-
             if (type != "Boolean")
-                throw new ArgumentException($"Curve `{name}` has typed `{type}` expected `Boolean`");
+                throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has typed `{type}` expected `Boolean`");
 
             var keys = (JArray)curve["Keys"];
             foreach (var key in keys)
@@ -37,9 +35,9 @@ namespace Assets.Scripts.Curves
             }
         }
 
-        [UsedImplicitly] private void FixedUpdate()
+        [UsedImplicitly] private void Update()
         {
-            var v = _elevation.Evaluate(Time.fixedTime);
+            var v = _elevation.Evaluate(Time.timeSinceLevelLoad);
 
             State = v > 0.5f;
 

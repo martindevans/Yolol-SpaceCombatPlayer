@@ -63,36 +63,35 @@ namespace Assets.Scripts
 
                 try
                 {
-                    using (var www = UnityWebRequest.Get(RootUrl))
+                    using var www = UnityWebRequest.Get(RootUrl);
+
+                    www.SetRequestHeader("Accept", "application/json");
+
+                    yield return www.SendWebRequest();
+                    yield return new WaitForSecondsRealtime(0.215f);
+
+                    while (www.result == UnityWebRequest.Result.InProgress)
+                        yield return null;
+
+                    switch (www.result)
                     {
-                        www.SetRequestHeader("Accept", "application/json");
+                        default:
+                            throw new ArgumentOutOfRangeException();
 
-                        yield return www.SendWebRequest();
-                        yield return new WaitForSecondsRealtime(0.215f);
+                        case UnityWebRequest.Result.InProgress:
+                            throw new InvalidOperationException("WebRequest was in progress after completing");
 
-                        while (www.result == UnityWebRequest.Result.InProgress)
-                            yield return null;
+                        case UnityWebRequest.Result.DataProcessingError:
+                        case UnityWebRequest.Result.ProtocolError:
+                        case UnityWebRequest.Result.ConnectionError:
+                            ErrorMessage.gameObject.SetActive(true);
+                            ErrorMessage.text = $"Download Failed!\n{www.error}";
+                            break;
 
-                        switch (www.result)
-                        {
-                            default:
-                                throw new ArgumentOutOfRangeException();
-
-                            case UnityWebRequest.Result.InProgress:
-                                throw new InvalidOperationException("WebRequest was in progress after completing");
-
-                            case UnityWebRequest.Result.DataProcessingError:
-                            case UnityWebRequest.Result.ProtocolError:
-                            case UnityWebRequest.Result.ConnectionError:
-                                ErrorMessage.gameObject.SetActive(true);
-                                ErrorMessage.text = $"Download Failed!\n{www.error}";
-                                break;
-
-                            case UnityWebRequest.Result.Success: {
-                                ErrorMessage.gameObject.SetActive(false);
-                                LoadJson(www.downloadHandler.text);
-                                yield break;
-                            }
+                        case UnityWebRequest.Result.Success: {
+                            ErrorMessage.gameObject.SetActive(false);
+                            LoadJson(www.downloadHandler.text);
+                            yield break;
                         }
                     }
                 }

@@ -20,8 +20,8 @@ namespace Assets.Scripts
         {
             _curve ??= GetComponentInParent<FuelLitersCurve>();
 
-            var max = _curve?.MaxFuelLevel ?? FakeMaxFuel;
-            var now = _curve?.CurrentFuelLevel ?? FakeFuel;
+            var max = _curve?.MaxValue ?? FakeMaxFuel;
+            var now = _curve?.Value ?? FakeFuel;
 
             _parent ??= transform.parent;
             var bot = new Vector3(_parent.position.x, 0, _parent.position.z);

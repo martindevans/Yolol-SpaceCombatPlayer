@@ -50,7 +50,8 @@ namespace Assets.Scripts
         {
             if (!_isHulk)
             {
-                _isHulk = _hulk?.GetComponent<TransformPositionCurve>().CurveStarted ?? false;
+                if (_hulk)
+                    _isHulk = _hulk.GetComponent<TransformPositionCurve>().CurveStarted;
                 if (_isHulk)
                     Name.fontStyle = FontStyles.Strikethrough;
             }
@@ -61,8 +62,8 @@ namespace Assets.Scripts
             }
             else
             {
-                var current = _fuel.CurrentFuelLevel;
-                var max = _fuel.MaxFuelLevel;
+                var current = _fuel.Value;
+                var max = _fuel.MaxValue;
                 FuelSlider.value = current / max;
             }
         }

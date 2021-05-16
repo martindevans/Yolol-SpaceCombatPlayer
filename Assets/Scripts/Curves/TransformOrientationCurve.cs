@@ -15,10 +15,9 @@ namespace Assets.Scripts.Curves
 
         [CanBeNull] private Transform _transform;
 
-        public void LoadCurve([NotNull] JToken curve)
+        public void LoadCurve(JToken curve)
         {
             var type = curve["Type"].Value<string>();
-
             if (type != "Quaternion")
                 throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has typed `{type}` expected `Quaternion`");
 
@@ -40,7 +39,7 @@ namespace Assets.Scripts.Curves
 
         [UsedImplicitly] private void Update()
         {
-            var t = Time.time;
+            var t = Time.timeSinceLevelLoad;
 
             var w = _curveW.Evaluate(t);
             var x = _curveX.Evaluate(t);

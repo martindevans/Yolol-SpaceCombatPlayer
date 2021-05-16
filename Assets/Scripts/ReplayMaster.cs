@@ -29,6 +29,7 @@ namespace Assets.Scripts
         [SerializeField] public GameObject ShellPrefab;
         [SerializeField] public GameObject MissilePrefab;
         [SerializeField] public GameObject AsteroidPrefab;
+        [SerializeField] private GameObject VictoryMarkerPrefab;
 
         [UsedImplicitly] private void OnEnable()
         {
@@ -48,49 +49,47 @@ namespace Assets.Scripts
 
         private IEnumerator LoadUrl()
         {
-            using (var www = UnityWebRequest.Get(UrlToLoad))
+            using var www = UnityWebRequest.Get(UrlToLoad);
+
+            yield return www.SendWebRequest();
+            yield return new WaitForSecondsRealtime(0.215f);
+
+            while (www.result == UnityWebRequest.Result.InProgress)
+                yield return null;
+
+            switch (www.result)
             {
-                yield return www.SendWebRequest();
-                yield return new WaitForSecondsRealtime(0.215f);
+                default:
+                    throw new ArgumentOutOfRangeException();
 
-                while (www.result == UnityWebRequest.Result.InProgress)
-                    yield return null;
+                case UnityWebRequest.Result.InProgress:
+                    throw new InvalidOperationException("WebRequest was in progress after completing");
 
-                switch (www.result)
-                {
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                case UnityWebRequest.Result.DataProcessingError:
+                case UnityWebRequest.Result.ProtocolError:
+                case UnityWebRequest.Result.ConnectionError:
+                    Debug.LogError($"Download Failed!\n{www.error}");
+                    break;
 
-                    case UnityWebRequest.Result.InProgress:
-                        throw new InvalidOperationException("WebRequest was in progress after completing");
-
-                    case UnityWebRequest.Result.DataProcessingError:
-                    case UnityWebRequest.Result.ProtocolError:
-                    case UnityWebRequest.Result.ConnectionError:
-                        Debug.LogError($"Download Failed!\n{www.error}");
-                        break;
-
-                    case UnityWebRequest.Result.Success: {
-                        LoadStream(new MemoryStream(www.downloadHandler.data));
-                        yield break;
-                    }
+                case UnityWebRequest.Result.Success: {
+                    LoadStream(new MemoryStream(www.downloadHandler.data));
+                    yield break;
                 }
             }
         }
 
         private void LoadStream([NotNull] Stream stream)
         {
-            using (var zip = new DeflateStream(stream, CompressionMode.Decompress))
-            using (var reader = new StreamReader(zip))
-            using (var json = new JsonTextReader(reader))
-            {
-                var s = new Stopwatch();
-                s.Start();
-                var replayFile = (JObject)JToken.ReadFrom(json);
-                Debug.Log($"JSON Decompress/Parse Time: {s.Elapsed.TotalMilliseconds}ms");
+            using var zip = new DeflateStream(stream, CompressionMode.Decompress);
+            using var reader = new StreamReader(zip);
+            using var json = new JsonTextReader(reader);
 
-                CreateEntities(replayFile);
-            }
+            var s = new Stopwatch();
+            s.Start();
+            var replayFile = (JObject)JToken.ReadFrom(json);
+            Debug.Log($"JSON Decompress/Parse Time: {s.Elapsed.TotalMilliseconds}ms");
+
+            CreateEntities(replayFile);
         }
 
         private void CreateEntities([NotNull] JObject replayFile)
@@ -115,10 +114,11 @@ namespace Assets.Scripts
                         UiBuilder.AddSpaceHulk(Create(id, curves, SpaceHulkPrefab, curveLoaders));
                         break;
 
-                    case "Explosion":
+                    case "Explosion": {
                         var go = Create(id, curves, ExplosionPrefab, curveLoaders);
                         go.GetComponent<TransformPositionCurve>().PostDestroy = false;
                         break;
+                    }
 
                     case "Shell":
                         Create(id, curves, ShellPrefab, curveLoaders);
@@ -131,6 +131,14 @@ namespace Assets.Scripts
                     case "Asteroid":
                         Create(id, curves, AsteroidPrefab, curveLoaders);
                         break;
+
+                    case "VictoryMarker": {
+                        var go = Create(id, curves, VictoryMarkerPrefab, curveLoaders);
+                        var pos = go.GetComponent<TransformPositionCurve>();
+                        if (pos)
+                            pos.PostDestroy = false;
+                        break;
+                    }
 
                     default:
                         Debug.LogError($"Unknown Entity Type: `{type}`");

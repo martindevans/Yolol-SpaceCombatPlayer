@@ -34,9 +34,9 @@ namespace Assets.Scripts.Curves
             }
         }
 
-        [UsedImplicitly] protected virtual void FixedUpdate()
+        [UsedImplicitly] protected virtual void Update()
         {
-            var t = Time.fixedTime;
+            var t = Time.timeSinceLevelLoad;
             var x = _curveX.Evaluate(t);
             var y = _curveY.Evaluate(t);
             var z = _curveZ.Evaluate(t);

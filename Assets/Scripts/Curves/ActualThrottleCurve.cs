@@ -1,6 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
-using Newtonsoft.Json.Linq;
+﻿using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Assets.Scripts.Curves
@@ -8,7 +6,6 @@ namespace Assets.Scripts.Curves
     public class ActualThrottleCurve
         : BaseFloatCurve
     {
-        private readonly AnimationCurve _throttle = new AnimationCurve();
         private EngineThrottle[] _engines;
 
         [UsedImplicitly] private void OnEnable()
@@ -16,12 +13,11 @@ namespace Assets.Scripts.Curves
             _engines = GetComponentsInChildren<EngineThrottle>();
         }
 
-        [UsedImplicitly] protected override void FixedUpdate()
+        [UsedImplicitly] protected override void Update()
         {
-            base.FixedUpdate();
+            base.Update();
 
             var x = Mathf.Clamp01(Value);
-
             foreach (var engine in _engines)
                 engine.Throttle = x;
         }

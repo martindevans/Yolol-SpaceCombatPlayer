@@ -10,15 +10,18 @@ namespace Assets.Scripts.Curves
     {
         private readonly AnimationCurve _curve = new AnimationCurve();
 
+        public float MinValue { get; private set; }
+        public float MaxValue { get; private set; }
         public float Value { get; private set; }
 
         public void LoadCurve([NotNull] JToken curve)
         {
-            var name = curve["Name"].Value<string>();
             var type = curve["Type"].Value<string>();
-
             if (type != "Single")
-                throw new ArgumentException($"Curve `{name}` has typed `{type}` expected `Single`");
+                throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has typed `{type}` expected `Single`");
+
+            MinValue = float.MaxValue;
+            MaxValue = float.MinValue;
 
             var keys = (JArray)curve["Keys"];
             foreach (var key in keys)
@@ -27,12 +30,15 @@ namespace Assets.Scripts.Curves
                 var x = (float?)key["V"] ?? 0;
 
                 _curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
+
+                MinValue = Math.Min(MinValue, x);
+                MaxValue = Math.Max(MaxValue, x);
             }
         }
 
-        [UsedImplicitly] protected virtual void FixedUpdate()
+        [UsedImplicitly] protected virtual void Update()
         {
-            Value = _curve.Evaluate(Time.fixedTime);
+            Value = _curve.Evaluate(Time.timeSinceLevelLoad);
         }
     }
 }

@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\ShipUiElement.cs" />
     <Compile Include="Assets\Scripts\ReplayController.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\ProgressBar.cs" />
+    <Compile Include="Assets\Scripts\LoadLocalReplayButton.cs" />
     <Compile Include="Assets\Scripts\Curves\BaseFloatCurve.cs" />
     <Compile Include="Assets\Scripts\DropExplosionCircle.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\ParticleSysem\RFX4_CollisionPropertyDeactiavtion.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Assets\Scripts\Curves\RadarRangeCurve.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\CustomInputField.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_PhysicsForceCurves.cs" />
+    <Compile Include="Assets\Scripts\LoadScene.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\SceneResources\Other\FPS.cs" />
     <Compile Include="Assets\Scripts\DropAsteroidCircle.cs" />
     <Compile Include="Assets\Scripts\Curves\BaseVector3DirectionCurve.cs" />
@@ -179,6 +181,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_ScaleCurves.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scripts\SelfDisableWebGl.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Scripts\AddToCinemachineTargetGroup.cs" />
@@ -204,9 +207,9 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\ModalDialog.cs" />
     <Compile Include="Assets\Scripts\RadarTargetIndicator.cs" />
     <Compile Include="Assets\Scripts\CameraMaster.cs" />
-    <Compile Include="Assets\Scripts\SelfDisableWebGl.cs" />
-    <Compile Include="Assets\Scripts\LoadScene.cs" />
-    <Compile Include="Assets\Scripts\LoadLocalReplayButton.cs" />
+    <Compile Include="Assets\Scripts\SetTmpTextFromName.cs" />
+    <Compile Include="Assets\Scripts\Activate.cs" />
+    <Compile Include="Assets\Scripts\SwapVCamWhenGroupEmpty.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Triangle Darken.shader" />

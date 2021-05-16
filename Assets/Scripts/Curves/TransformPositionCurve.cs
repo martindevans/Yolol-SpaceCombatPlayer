@@ -51,7 +51,7 @@ namespace Assets.Scripts.Curves
         {
             _transform ??= transform;
 
-            var t = Time.time;
+            var t = Time.timeSinceLevelLoad;
 
             var active = !(PreDeactivate && t < _activationTime);
             if (PostDestroy && t > _deactivationTime)
