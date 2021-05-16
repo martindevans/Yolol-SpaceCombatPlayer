@@ -8,7 +8,9 @@ namespace Assets.Scripts
     {
         private void OnEnable()
         {
-            GetComponentInChildren<TextMeshProUGUI>().text = name;
+            var text = GetComponentInChildren<TextMeshProUGUI>(true);
+            if (text)
+                text.text = name;
         }
     }
 }
