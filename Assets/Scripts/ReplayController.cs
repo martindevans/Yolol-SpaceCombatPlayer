@@ -92,6 +92,12 @@ namespace Assets.Scripts
                         break;
                     }
 
+                    case "sphere_collider_radius": {
+                        var c = gameObject.AddComponent<SphereColliderRadiusCurve>();
+                        loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
+                        break;
+                    }
+
                     default:
                         Debug.LogError($"Unknown Curve Name: `{curveName}`");
                         break;

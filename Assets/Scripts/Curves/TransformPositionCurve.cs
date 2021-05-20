@@ -23,7 +23,7 @@ namespace Assets.Scripts.Curves
 
         public bool CurveStarted =>_activated ?? false;
 
-        public void LoadCurve([NotNull] JToken curve)
+        public void LoadCurve(JToken curve)
         {
             var type = curve["Type"].Value<string>();
             if (type != "Vector3")
