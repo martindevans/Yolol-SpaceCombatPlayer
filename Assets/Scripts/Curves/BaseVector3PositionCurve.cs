@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Assets.Scripts.Curves
 {
     public abstract class BaseVector3PositionCurve
-        : MonoBehaviour
+        : MonoBehaviour, ICurveDeserialiser
     {
         private readonly AnimationCurve _curveX = new AnimationCurve();
         private readonly AnimationCurve _curveY = new AnimationCurve();

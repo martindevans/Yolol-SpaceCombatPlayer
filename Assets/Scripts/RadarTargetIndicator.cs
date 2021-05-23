@@ -22,7 +22,7 @@ namespace Assets.Scripts
             if (!Application.isPlaying)
                 target = FakeTarget;
 
-            if (target.sqrMagnitude < 10)
+            if (target.sqrMagnitude < 1)
                 return;
 
             using (Draw.Command(cam))
@@ -35,7 +35,6 @@ namespace Assets.Scripts
 
                 _transform ??= transform;
                 var start = _transform.parent.position;
-                var dir = target - start;
 
                 Draw.LineDashed(start, target);
             }

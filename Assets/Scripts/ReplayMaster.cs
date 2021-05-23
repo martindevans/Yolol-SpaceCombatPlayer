@@ -149,7 +149,7 @@ namespace Assets.Scripts
 
             s.Restart();
             Parallel.ForEach(curveLoaders, kvp => kvp.Key.LoadCurve(kvp.Value));
-            Debug.Log($"Curve Load Time: {s.Elapsed.TotalMilliseconds}ms");
+            Debug.Log($"Curve Load Time (parallelised): {s.Elapsed.TotalMilliseconds}ms");
         }
 
         [NotNull] private static GameObject Create(string id, [NotNull] JArray curves, [NotNull] GameObject prefab, List<KeyValuePair<ICurveDeserialiser, JToken>> paralellLoaders)
