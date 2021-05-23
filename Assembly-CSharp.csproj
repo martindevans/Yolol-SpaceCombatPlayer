@@ -127,6 +127,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_WindCurves.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\DropdownItem.cs" />
+    <Compile Include="Assets\Scripts\LightFlicker.cs" />
+    <Compile Include="Assets\Scripts\TimerDisplay.cs" />
     <Compile Include="Assets\Scripts\Curves\FuelLitersCurve.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\ChargeBar.cs" />
     <Compile Include="Assets\Scripts\SetScaleFromSphereSize.cs" />
@@ -213,8 +215,7 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\ModalDialog.cs" />
     <Compile Include="Assets\Scripts\RadarTargetIndicator.cs" />
     <Compile Include="Assets\Scripts\CameraMaster.cs" />
-    <Compile Include="Assets\Scripts\LightFlicker.cs" />
-    <Compile Include="Assets\Scripts\TimerDisplay.cs" />
+    <Compile Include="Assets\Scripts\Curves\BaseBoolCurve.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Triangle Darken.shader" />

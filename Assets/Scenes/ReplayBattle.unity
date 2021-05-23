@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.01142841, g: 0.011651886, b: 0.015624746, a: 1}
+  m_IndirectSpecularColor: {r: 0.011498072, g: 0.011809553, b: 0.015688349, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -600,14 +600,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603000855}
-  m_LocalRotation: {x: -0.31641528, y: 0.6752157, z: -0.53125936, w: -0.40215495}
+  m_LocalRotation: {x: -0.31642333, y: 0.67520964, z: -0.5312547, w: -0.40216509}
   m_LocalPosition: {x: 1500, y: 6000, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1287701850}
   m_Father: {fileID: 1715268976}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 76.3913, y: 241.55563, z: 0.000007257211}
+  m_LocalEulerAnglesHint: {x: 76.39132, y: 241.55731, z: 0}
 --- !u!114 &603000857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,10 +1195,10 @@ MonoBehaviour:
   m_VerticalDamping: 3.38
   m_ScreenX: 0.573772
   m_ScreenY: 0.5027474
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.7287415
-  m_SoftZoneHeight: 0.8
+  m_DeadZoneWidth: 0.014
+  m_DeadZoneHeight: 0.014
+  m_SoftZoneWidth: 0.079
+  m_SoftZoneHeight: 0.094
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -1207,11 +1207,11 @@ MonoBehaviour:
   m_FrameDamping: 3.71
   m_AdjustmentMode: 2
   m_MaxDollyIn: 2000
-  m_MaxDollyOut: 7000
+  m_MaxDollyOut: 8000
   m_MinimumDistance: 500
-  m_MaximumDistance: 7500
+  m_MaximumDistance: 8000
   m_MinimumFOV: 3
-  m_MaximumFOV: 110
+  m_MaximumFOV: 120
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
 --- !u!114 &1287701853
