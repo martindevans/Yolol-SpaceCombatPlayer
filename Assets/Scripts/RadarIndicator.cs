@@ -47,7 +47,7 @@ namespace Assets.Scripts
                 return;
 
             var range = Mathf.Clamp(_rangeCurve?.Value ?? 0, InnerRadius, OuterRadius);
-            var angle = (_angleCurve?.Value ?? FakeAngle) * 2;
+            var angle = (_angleCurve?.Value ?? FakeAngle);
 
             var rot = Quaternion.LookRotation(-_current.Value, Vector3.Dot(-_current.Value, Vector3.up) > 0.9 ? Vector3.left : Vector3.up);
 
@@ -60,8 +60,8 @@ namespace Assets.Scripts
                 Draw.LineThickness = 2;
                 Draw.Color = Color.red;
 
-                var rad = Mathf.Sin(Mathf.Deg2Rad * angle / 2) * range;
-                Draw.Cone(_current.Value * (range + InnerRadius), rot, rad, range);
+                var radius = Mathf.Tan(Mathf.Deg2Rad * angle / 2) * range;
+                Draw.Cone(_current.Value * (range + InnerRadius), rot, radius, range);
             }
         }
     }
