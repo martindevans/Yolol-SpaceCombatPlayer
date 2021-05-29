@@ -31,7 +31,7 @@ namespace Assets.Scripts
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.LineGeometry = LineGeometry.Volumetric3D;
                 Draw.LineThickness = 2;
-                Draw.Color = Color.red;
+                Draw.Color = new Color(1, 0, 0, 0.75f);
 
                 _transform ??= transform;
                 var start = _transform.parent.position;

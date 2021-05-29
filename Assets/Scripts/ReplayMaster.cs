@@ -29,7 +29,7 @@ namespace Assets.Scripts
         [SerializeField] public GameObject ShellPrefab;
         [SerializeField] public GameObject MissilePrefab;
         [SerializeField] public GameObject AsteroidPrefab;
-        [SerializeField] private GameObject VictoryMarkerPrefab;
+        [SerializeField] public GameObject VictoryMarkerPrefab;
 
         [UsedImplicitly] private void OnEnable()
         {
@@ -152,7 +152,7 @@ namespace Assets.Scripts
             Debug.Log($"Curve Load Time (parallelised): {s.Elapsed.TotalMilliseconds}ms");
         }
 
-        [NotNull] private static GameObject Create(string id, [NotNull] JArray curves, [NotNull] GameObject prefab, List<KeyValuePair<ICurveDeserialiser, JToken>> paralellLoaders)
+        [NotNull] private static GameObject Create(string id, [NotNull] JArray curves, [NotNull] GameObject prefab, [NotNull] List<KeyValuePair<ICurveDeserialiser, JToken>> paralellLoaders)
         {
             // Instantiate as inactive, then set prefab back to whatever it was
             var wasActive = prefab.activeSelf;

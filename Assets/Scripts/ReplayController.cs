@@ -10,8 +10,14 @@ namespace Assets.Scripts
     public class ReplayController
         : MonoBehaviour
     {
-        public void LoadCurves([NotNull] JArray curves, List<KeyValuePair<ICurveDeserialiser, JToken>> loaders)
+        public void LoadCurves([NotNull] JArray curves, [NotNull] List<KeyValuePair<ICurveDeserialiser, JToken>> loaders)
         {
+            void Add<T>(JToken curve) where T : MonoBehaviour, ICurveDeserialiser
+            {
+                var c = gameObject.AddComponent<T>();
+                loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
+            }
+
             foreach (var curve in curves)
             {
                 var curveName = curve["Name"].Value<string>();
@@ -24,8 +30,32 @@ namespace Assets.Scripts
                         break;
                     }
 
+                    case "orientation.w": {
+                        var c = gameObject.AddComponent<ElementWOrientationCurve>();
+                        loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
+                        break;
+                    }
+
+                    case "orientation.x": {
+                        var c = gameObject.AddComponent<ElementXOrientationCurve>();
+                        loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
+                        break;
+                    }
+
+                    case "orientation.y": {
+                        var c = gameObject.AddComponent<ElementYOrientationCurve>();
+                        loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
+                        break;
+                    }
+
+                    case "orientation.z": {
+                        var c = gameObject.AddComponent<ElementZOrientationCurve>();
+                        loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
+                        break;
+                    }
+
                     case "orientation": {
-                        var c = gameObject.AddComponent<TransformOrientationCurve>();
+                        var c = gameObject.AddComponent<CompositeOrientationCurve>();
                         loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
                         break;
                     }
@@ -95,6 +125,21 @@ namespace Assets.Scripts
                     case "sphere_collider_radius": {
                         var c = gameObject.AddComponent<SphereColliderRadiusCurve>();
                         loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
+                        break;
+                    }
+
+                    case "debug_sphere_position": {
+                        Add<DebugSpherePosition>(curve);
+                        break;
+                    }
+
+                    case "debug_sphere_radius": {
+                        Add<DebugSphereRadius>(curve);
+                        break;
+                    }
+
+                    case "debug_sphere_color": {
+                        Add<DebugSphereColor>(curve);
                         break;
                     }
 

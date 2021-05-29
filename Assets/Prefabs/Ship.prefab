@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 6571907284861949255}
   - component: {fileID: 2168210005992975276}
   - component: {fileID: 2282525802219738641}
+  - component: {fileID: 2552670637230098786}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -359,7 +360,7 @@ MonoBehaviour:
   useCullingMasks: 0
   InnerRadius: 40
   OuterRadius: 620
-  SlerpConstant: 0.45
+  SlerpConstant: 0.9
   FakeAngle: 0
 --- !u!114 &2168210005992975276
 MonoBehaviour:
@@ -390,6 +391,19 @@ MonoBehaviour:
   TargetGroupName: ShipsTargetGroup
   Weight: 1
   Radius: 500
+--- !u!114 &2552670637230098786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494704761965223982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0faead05f88c6f547ba055cb991104af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useCullingMasks: 0
 --- !u!1 &1494704762154432881
 GameObject:
   m_ObjectHideFlags: 0

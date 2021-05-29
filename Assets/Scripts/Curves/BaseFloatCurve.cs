@@ -14,7 +14,7 @@ namespace Assets.Scripts.Curves
         public float MaxValue { get; private set; }
         public float Value { get; private set; }
 
-        public void LoadCurve([NotNull] JToken curve)
+        public void LoadCurve(JToken curve)
         {
             var type = curve["Type"].Value<string>();
             if (type != "Single")

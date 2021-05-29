@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Curves
 {
-    public class TransformOrientationCurve
+    public class CompositeOrientationCurve
         : MonoBehaviour, ICurveDeserialiser
     {
         private readonly AnimationCurve _curveW = new AnimationCurve();
