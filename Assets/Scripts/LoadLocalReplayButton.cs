@@ -9,8 +9,17 @@ namespace Assets.Scripts
     public class LoadLocalReplayButton
         : MonoBehaviour
     {
+        private const string Key = "local_replay_cached_path";
+
         public InputField FilePathInput;
         public Button LoadLocalButton;
+
+        public void OnEnable()
+        {
+            var path = PlayerPrefs.GetString(Key);
+            if (!string.IsNullOrWhiteSpace(path) && Directory.Exists(path) || File.Exists(path))
+                FilePathInput.text = path;
+        }
 
         public void OnFilePathChanged()
         {
@@ -18,7 +27,12 @@ namespace Assets.Scripts
 
         public void OnClick()
         {
-            ReplayMaster.UrlToLoad = FindReplay();
+            var path = FindReplay();
+            if (path == null)
+                return;
+
+            PlayerPrefs.SetString(Key, path);
+            ReplayMaster.UrlToLoad = path;
             SceneManager.LoadScene("ReplayBattle");
         }
 
