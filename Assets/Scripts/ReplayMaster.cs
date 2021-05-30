@@ -163,7 +163,7 @@ namespace Assets.Scripts
             // Initialise the gameobject
             go.name = id;
             var control = go.GetComponent<ReplayController>();
-            control.LoadCurves(curves, paralellLoaders);
+            control.LoadCurves(curves);
 
             // Activate it (if the prefab was active)
             go.SetActive(wasActive);

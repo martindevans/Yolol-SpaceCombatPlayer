@@ -14,11 +14,17 @@ namespace Assets.Scripts.Curves
 
         public Vector3 Value { get; private set; }
 
-        public void LoadCurve([NotNull] JToken curve)
+        public float FirstKeyTime { get; private set; }
+        public float LastKeyTime { get; private set; }
+
+        public void LoadCurve(JToken curve)
         {
             var type = curve["Type"].Value<string>();
             if (type != "Vector3")
                 throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has type `{type}` expected `Vector3`");
+
+            FirstKeyTime = float.MaxValue;
+            LastKeyTime = float.MinValue;
 
             var keys = (JArray)curve["Keys"];
             foreach (var key in keys)
@@ -31,6 +37,9 @@ namespace Assets.Scripts.Curves
                 _curveX.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
                 _curveY.AddKey(new Keyframe(t, y, 0, 0, 0, 0));
                 _curveZ.AddKey(new Keyframe(t, z, 0, 0, 0, 0));
+
+                FirstKeyTime = Math.Min(FirstKeyTime, t);
+                LastKeyTime = Math.Max(LastKeyTime, t);
             }
         }
 
