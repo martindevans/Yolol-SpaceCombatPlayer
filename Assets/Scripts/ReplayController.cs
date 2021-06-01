@@ -49,11 +49,11 @@ namespace Assets.Scripts
                         break;
                     }
 
-                    //case "orientation": {
-                    //    var c = gameObject.AddComponent<CompositeOrientationCurve>();
-                    //    loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
-                    //    break;
-                    //}
+                    case "orientation": {
+                        var c = gameObject.AddComponent<CompositeOrientationCurve>();
+                        loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
+                        break;
+                    }
 
                     case "actual_throttle": {
                         Add<ActualThrottleCurve>(curve);
@@ -90,6 +90,21 @@ namespace Assets.Scripts
 
                     case "radar_direction": {
                         Add<RadarDirectionCurve>(curve);
+                        break;
+                    }
+
+                    case "radar_direction.x": {
+                        Add<ElementXRadarDirectionCurve>(curve);
+                        break;
+                    }
+
+                    case "radar_direction.y": {
+                        Add<ElementYRadarDirectionCurve>(curve);
+                        break;
+                    }
+
+                    case "radar_direction.z": {
+                        Add<ElementZRadarDirectionCurve>(curve);
                         break;
                     }
 

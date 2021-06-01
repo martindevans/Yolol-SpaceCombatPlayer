@@ -15,7 +15,8 @@ namespace Assets.Scripts
 
         private Vector3? _current;
 
-        private RadarDirectionCurve _directionCurve;
+        private IRadarDirectionCurve _directionCurve;
+
         private RadarRangeCurve _rangeCurve;
         private RadarAngleCurve _angleCurve;
 
@@ -23,11 +24,11 @@ namespace Assets.Scripts
 
         public void FixedUpdate()
         {
-            _directionCurve ??= GetComponentInParent<RadarDirectionCurve>();
+            _directionCurve ??= GetComponentInParent<IRadarDirectionCurve>();
             _rangeCurve ??= GetComponentInParent<RadarRangeCurve>();
             _angleCurve ??= GetComponentInParent<RadarAngleCurve>();
 
-            var dir = _directionCurve?.Value ?? Vector3.one.normalized;
+            var dir = _directionCurve?.Direction ?? Vector3.one.normalized;
 
             var last = _current;
             if (last.HasValue)
