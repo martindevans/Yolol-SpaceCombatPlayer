@@ -1,11 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using Assets.Scripts.Curves;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
@@ -94,7 +91,6 @@ namespace Assets.Scripts
 
         private void CreateEntities([NotNull] JObject replayFile)
         {
-            var curveLoaders = new List<KeyValuePair<ICurveDeserialiser, JToken>>();
             var s = new Stopwatch();
 
             s.Start();
@@ -107,33 +103,33 @@ namespace Assets.Scripts
                 switch (type)
                 {
                     case "SpaceBattleShip":
-                        UiBuilder.AddSpaceShip(Create(id, curves, SpaceBattleshipPrefab, curveLoaders));
+                        UiBuilder.AddSpaceShip(Create(id, curves, SpaceBattleshipPrefab));
                         break;
 
                     case "SpaceHulk":
-                        UiBuilder.AddSpaceHulk(Create(id, curves, SpaceHulkPrefab, curveLoaders));
+                        UiBuilder.AddSpaceHulk(Create(id, curves, SpaceHulkPrefab));
                         break;
 
                     case "Explosion": {
-                        var go = Create(id, curves, ExplosionPrefab, curveLoaders);
+                        var go = Create(id, curves, ExplosionPrefab);
                         go.GetComponent<TransformPositionCurve>().PostDestroy = false;
                         break;
                     }
 
                     case "Shell":
-                        Create(id, curves, ShellPrefab, curveLoaders);
+                        Create(id, curves, ShellPrefab);
                         break;
 
                     case "Missile":
-                        Create(id, curves, MissilePrefab, curveLoaders);
+                        Create(id, curves, MissilePrefab);
                         break;
 
                     case "Asteroid":
-                        Create(id, curves, AsteroidPrefab, curveLoaders);
+                        Create(id, curves, AsteroidPrefab);
                         break;
 
                     case "VictoryMarker": {
-                        var go = Create(id, curves, VictoryMarkerPrefab, curveLoaders);
+                        var go = Create(id, curves, VictoryMarkerPrefab);
                         var pos = go.GetComponent<TransformPositionCurve>();
                         if (pos)
                             pos.PostDestroy = false;
@@ -146,13 +142,9 @@ namespace Assets.Scripts
                 }
             }
             Debug.Log($"Entity Creation Time: {s.Elapsed.TotalMilliseconds}ms");
-
-            s.Restart();
-            Parallel.ForEach(curveLoaders, kvp => kvp.Key.LoadCurve(kvp.Value));
-            Debug.Log($"Curve Load Time (parallelised): {s.Elapsed.TotalMilliseconds}ms");
         }
 
-        [NotNull] private static GameObject Create(string id, [NotNull] JArray curves, [NotNull] GameObject prefab, [NotNull] List<KeyValuePair<ICurveDeserialiser, JToken>> paralellLoaders)
+        [NotNull] private static GameObject Create(string id, [NotNull] JArray curves, [NotNull] GameObject prefab)
         {
             // Instantiate as inactive, then set prefab back to whatever it was
             var wasActive = prefab.activeSelf;

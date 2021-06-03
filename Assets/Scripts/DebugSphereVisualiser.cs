@@ -23,7 +23,7 @@ namespace Assets.Scripts
 
         public override void DrawShapes(Camera cam)
         {
-            if (_rad.Value == 0)
+            if (_pos == null || _col == null || _rad == null || _rad.Value == 0)
                 return;
 
             var c = _col.Value;

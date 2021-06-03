@@ -50,8 +50,7 @@ namespace Assets.Scripts
                     }
 
                     case "orientation": {
-                        var c = gameObject.AddComponent<CompositeOrientationCurve>();
-                        loaders.Add(new KeyValuePair<ICurveDeserialiser, JToken>(c, curve));
+                        Add<CompositeOrientationCurve>(curve);
                         break;
                     }
 

@@ -59,7 +59,7 @@ namespace Assets.Scripts
                 Draw.LineGeometry = LineGeometry.Flat2D;
                 Draw.Matrix = Matrix4x4.TRS(transform.position, Quaternion.Euler(0, 0, 0), Vector3.one);
                 Draw.LineThickness = 2;
-                Draw.Color = Color.red;
+                Draw.Color = new Color(0.8f, 0, 0, 0.15f);
 
                 var radius = Mathf.Tan(Mathf.Deg2Rad * angle / 2) * range;
                 Draw.Cone(_current.Value * (range + InnerRadius), rot, radius, range);
