@@ -111,6 +111,7 @@
     <Compile Include="Assets\Scripts\LoadReplayOnClick.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\CustomDropdown.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Scripts\ImpulseTriggerOnEnable.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\Compass.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_ShaderColorGradient.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\FpsController.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_StartDelay.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_ParticleGravityPoint.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_ShaderFloatCurve.cs" />
+    <Compile Include="Assets\Scripts\ClearUrlParameters.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Curves\RunningLightCurve.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\ModalByScript.cs" />
@@ -223,8 +225,6 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\ModalDialog.cs" />
     <Compile Include="Assets\Scripts\RadarTargetIndicator.cs" />
     <Compile Include="Assets\Scripts\CameraMaster.cs" />
-    <Compile Include="Assets\Scripts\ClearUrlParameters.cs" />
-    <Compile Include="Assets\Scripts\ImpulseTriggerOnEnable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Triangle Darken.shader" />

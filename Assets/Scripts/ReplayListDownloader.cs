@@ -25,7 +25,7 @@ namespace Assets.Scripts
 
         [UsedImplicitly] private void OnEnable()
         {
-#if UNITY_WEBGL
+#if UNITY_WEBGL && !UNITY_EDITOR
             // Load direct links
             var url = Application.absoluteURL;
             if (!string.IsNullOrWhiteSpace(url))
@@ -41,7 +41,7 @@ namespace Assets.Scripts
             }
 #else
             var args = Environment.GetCommandLineArgs();
-            var path = string.Join(" ", args);
+            var path = string.Join(" ", args.Skip(1));
 
             if (File.Exists(path))
             {
