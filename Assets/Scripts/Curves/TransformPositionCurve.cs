@@ -34,9 +34,6 @@ namespace Assets.Scripts.Curves
                     _transform.GetChild(i).gameObject.SetActive(active);
             }
 
-            if (!active)
-                return;
-
             _transform ??= transform;
             _transform.position = Value;
         }

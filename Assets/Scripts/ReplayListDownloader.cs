@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.IO;
 using System.Linq;
 using System.Web;
 using JetBrains.Annotations;
@@ -35,7 +36,18 @@ namespace Assets.Scripts
                 {
                     ReplayMaster.UrlToLoad = $"https://referee.cylon.xyz/fleets/replays/{id}";
                     SceneManager.LoadScene("ReplayBattle");
+                    return;
                 }
+            }
+#else
+            var args = Environment.GetCommandLineArgs();
+            var path = string.Join(" ", args);
+
+            if (File.Exists(path))
+            {
+                ReplayMaster.UrlToLoad = path;
+                SceneManager.LoadScene("ReplayBattle");
+                return;
             }
 #endif
 
