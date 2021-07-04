@@ -9,6 +9,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -20,8 +21,12 @@ namespace Assets.Scripts
         public TextMeshProUGUI ErrorMessage;
         public GameObject LoadingSpinner;
         public RectTransform ListContent;
+        public InputField FilterInput;
 
         public RectTransform ReplayButtonPrefab;
+
+        private string _currentFilter = "";
+        private bool _filterDirty = false;
 
         [UsedImplicitly] private void OnEnable()
         {
@@ -130,12 +135,15 @@ namespace Assets.Scripts
                 .OrderByDescending(a => a.Time)
                 .ToList();
 
+            // Set the content area to be exactly the right size for all the content
             ListContent.sizeDelta = new Vector2(ListContent.sizeDelta.x, items.Count * 40);
 
+            // Create a button (from a prefab) for each available replay
             var index = 0;
             foreach (var item in items)
             {
                 var button = Instantiate(ReplayButtonPrefab, ListContent);
+                button.gameObject.name = item.Name;
                 button.anchoredPosition = new Vector2(0, -40 * index++);
                 button.GetComponentInChildren<TextMeshProUGUI>().text = item.Name;
 
@@ -143,6 +151,57 @@ namespace Assets.Scripts
                 loader.Url = $"https://referee.cylon.xyz/fleets/replays/{item.Name}";
                 loader.PushUrl = $"https://referee.cylon.xyz/fleets/player/?replay={HttpUtility.UrlEncode(item.Name)}";
             }
+
+            // Mark the filter as dirty to force it to be re-applied to this new list next frame
+            _filterDirty = true;
+        }
+
+        public void OnFilterStringChanged()
+        {
+            _filterDirty = true;
+        }
+
+        public void Update()
+        {
+            if (_filterDirty)
+            {
+                ApplyFilter();
+                _filterDirty = false;
+            }
+        }
+
+        private void ApplyFilter()
+        {
+            var filter = FilterInput.text;
+
+            // Store the count of active items so far (to correctly offset things into position)
+            var activeCount = 0;
+
+            // Filter got longer (by appending something to the existing filter).
+            // Filter down only the items that passed the filter last time.
+            for (var i = 0; i < ListContent.childCount; i++)
+            {
+                var trans = ListContent.GetChild(i);
+                var go = trans.gameObject;
+                var rect = go.GetComponent<RectTransform>();
+
+                // Deactivate it if the filter string isn't found
+                if (!go.name.Contains(filter))
+                {
+                    go.SetActive(false);
+                    continue;
+                }
+                else
+                    go.SetActive(true);
+
+                // Offset back into correct position
+                rect.anchoredPosition = new Vector2(0, -40 * activeCount++);
+            }
+
+            // set height of container
+            ListContent.sizeDelta = new Vector2(ListContent.sizeDelta.x, activeCount * 40);
+
+            _currentFilter = filter;
         }
 
         private class ReplayFileItem
