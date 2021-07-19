@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
-    [ExecuteAlways]
     public class DropFuelDisplay
         : ImmediateModeShapeDrawer
     {
@@ -28,7 +27,6 @@ namespace Assets.Scripts
 
             using (Draw.Command(cam))
             {
-                Draw.ZTest = CompareFunction.Less;
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
                 Draw.LineGeometry = LineGeometry.Flat2D;

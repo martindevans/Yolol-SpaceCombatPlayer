@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
-    [ExecuteAlways]
     public class OrientationDisplay
         : ImmediateModeShapeDrawer
     {
@@ -26,7 +25,6 @@ namespace Assets.Scripts
 
             using (Draw.Command(cam))
             {
-                Draw.ZTest = CompareFunction.Less;
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.Color = Color.green;
                 Draw.LineThickness = 1.5f;

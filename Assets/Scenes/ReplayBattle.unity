@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShipUiPrefab: {fileID: 7626799312032623667, guid: 53f417c1d242e2f44bef62f67e7995fe, type: 3}
+  TeamNameUiPrefab: {fileID: 7626799312032623667, guid: 15c5dcd4e34911d40beb63bff05e52fc, type: 3}
 --- !u!114 &119691185
 MonoBehaviour:
   m_ObjectHideFlags: 0

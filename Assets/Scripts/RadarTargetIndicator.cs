@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
-    [ExecuteAlways]
     public class RadarTargetIndicator
         : ImmediateModeShapeDrawer
     {
@@ -27,7 +26,6 @@ namespace Assets.Scripts
 
             using (Draw.Command(cam))
             {
-                Draw.ZTest = CompareFunction.Less;
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.LineGeometry = LineGeometry.Volumetric3D;
                 Draw.LineThickness = 2;

@@ -4,7 +4,6 @@ using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
-    [ExecuteAlways]
     public class DropExplosionCircle
         : ImmediateModeShapeDrawer
     {
@@ -55,14 +54,13 @@ namespace Assets.Scripts
 
             using (Draw.Command(cam))
             {
-                Draw.ZTest = CompareFunction.Less;
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
                 Draw.Matrix = Matrix4x4.TRS(bot, Quaternion.Euler(90, 0, 0), Vector3.one);
                 Draw.Color = Color.red;
                 Draw.RingThickness = _midRadius - _innerRadius;
 
-                const float count = 20;
+                const float count = 10;
                 for (var i = 0; i < count; i++)
                 {
                     var mid = 2 * Mathf.PI / count * i;

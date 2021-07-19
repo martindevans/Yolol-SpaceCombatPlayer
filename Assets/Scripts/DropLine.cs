@@ -1,14 +1,15 @@
 using Shapes;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
-    [ExecuteAlways]
     public class DropLine
         : ImmediateModeShapeDrawer
     {
         private Transform _parent;
+
+        public Color ColorUp = new Color(0, 1, 0, 0.5f);
+        public Color ColorDown = new Color(0.1922f, 0.1843f, 0.9994f, 0.5f);
 
         public override void DrawShapes(Camera cam)
         {
@@ -25,10 +26,9 @@ namespace Assets.Scripts
 
             using (Draw.Command(cam))
             {
-                Draw.ZTest = CompareFunction.Less;
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.LineGeometry = LineGeometry.Volumetric3D;
-                Draw.Color = top.y > bot.y ? Color.green : new Color(0.3922f, 0.5843f, 0.9294f, 1);
+                Draw.Color = top.y > bot.y ? ColorUp : ColorDown;
                 Draw.LineThickness = 2;
                 Draw.Line(top, bot);
             }

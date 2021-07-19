@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
-    [ExecuteAlways]
     public class DropMissileSquare
         : ImmediateModeShapeDrawer
     {
@@ -24,7 +23,6 @@ namespace Assets.Scripts
 
             using (Draw.Command(cam))
             {
-                Draw.ZTest = CompareFunction.Less;
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
                 Draw.Matrix = Matrix4x4.TRS(bot, Quaternion.Euler(90, 45, 0), Vector3.one);

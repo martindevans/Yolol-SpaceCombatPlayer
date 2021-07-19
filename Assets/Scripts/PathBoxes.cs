@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
-    [ExecuteAlways]
     public class PathBoxes
         : ImmediateModeShapeDrawer
     {
@@ -41,7 +40,7 @@ namespace Assets.Scripts
             var pos = _parent.position;
             var dist = _frames.Count == 0 ? float.PositiveInfinity : Vector3.Distance(pos, _frames[_frames.Count - 1].Position);
             var time = Time.time - _lastFrameTime;
-            if (dist > 10 && time > 7)
+            if (dist > 25 && time > 30)
             {
                 _lastFrameTime = Time.time;
                 _frames.Add(new Frame(_parent.position, _parent.rotation));
@@ -52,7 +51,6 @@ namespace Assets.Scripts
         {
             using (Draw.Command(cam))
             {
-                Draw.ZTest = CompareFunction.Less;
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
 

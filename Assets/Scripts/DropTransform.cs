@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    [ExecuteAlways]
     public class DropTransform
         : MonoBehaviour
     {

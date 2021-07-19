@@ -100,10 +100,13 @@ namespace Assets.Scripts
                 var type = entity["Type"].Value<string>();
                 var curves = (JArray)entity["Curves"];
 
+                var teamid = entity["TeamId"]?.Value<uint>();
+                var teamname = entity["TeamName"]?.Value<string>();
+
                 switch (type)
                 {
                     case "SpaceBattleShip":
-                        UiBuilder.AddSpaceShip(Create(id, curves, SpaceBattleshipPrefab));
+                        UiBuilder.AddSpaceShip(Create(id, curves, SpaceBattleshipPrefab), teamid, teamname);
                         break;
 
                     case "SpaceHulk":
