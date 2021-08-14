@@ -1,6 +1,5 @@
 using Shapes;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
@@ -27,10 +26,10 @@ namespace Assets.Scripts
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
                 Draw.Color = Color;
-                Draw.RingThickness = 3;
-                if (DrawDashed)
-                    Draw.RingDashed(bot, rot, new DashStyle(2), 55);
-                Draw.Ring(bot, rot, 50);
+                Draw.Thickness = 3;
+                Draw.DashStyle = DashStyle.MeterDashes(DashType.Basic, 2, 2);
+                Draw.UseDashes = DrawDashed;
+                Draw.Ring(bot, rot, 50 + (DrawDashed ? 5 : 0));
             }
         }
     }

@@ -27,11 +27,11 @@ namespace Assets.Scripts
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
                 Draw.Matrix = Matrix4x4.TRS(bot, Quaternion.Euler(90, 45, 0), Vector3.one);
                 Draw.Color = Color.red;
-                Draw.RectangleThickness = 2.5f;
+                Draw.Thickness = 2.5f;
                 Draw.RectangleBorder(Vector3.zero, new Vector2(25, 25), Thickness);
 
                 Draw.LineEndCaps = LineEndCap.Square;
-                Draw.LineThickness = 1;
+                Draw.Thickness = 1;
                 Draw.LineGeometry = LineGeometry.Flat2D;
                 Draw.Line(new Vector3(0, 14, 0), new Vector3(14, 14, 0));
                 Draw.Line(new Vector3(14, 14, 0), new Vector3(14, 0, 0));

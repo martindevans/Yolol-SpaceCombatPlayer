@@ -27,7 +27,7 @@ namespace Assets.Scripts
             {
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.Color = Color.green;
-                Draw.LineThickness = 1.5f;
+                Draw.Thickness = 1.5f;
                 Draw.Line(start, end);
             }
         }

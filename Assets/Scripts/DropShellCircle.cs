@@ -26,11 +26,11 @@ namespace Assets.Scripts
                 Draw.Matrix = Matrix4x4.TRS(bot, Quaternion.Euler(90, 0, 0), Vector3.one);
                 Draw.Color = Color.red;
 
-                Draw.RingThickness = 2.5f;
+                Draw.Thickness = 2.5f;
                 Draw.Ring(10);
 
                 Draw.LineEndCaps = LineEndCap.Square;
-                Draw.RingThickness = 1;
+                Draw.Thickness = 1;
 
                 //var pi4 = Mathf.PI / 4;
                 //Draw.Arc(13, -pi4, pi4);

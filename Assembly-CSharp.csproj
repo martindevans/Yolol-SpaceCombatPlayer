@@ -236,6 +236,7 @@
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Regular Polygon Multiplicative.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Regular Polygon Transparent.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture Screen.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Rect ColorDodge.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Cuboid Screen.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 2D Subtractive.shader" />
@@ -250,6 +251,7 @@
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Sphere LinearBurn.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Polyline 2D Additive.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Polygon ColorDodge.shader" />
+    <None Include="Assets\Shapes\Shaders\DashUtils.cginc" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Polygon Additive.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Cuboid ColorDodge.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 2D ColorBurn.shader" />
@@ -257,6 +259,7 @@
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Torus Transparent.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Triangle Transparent.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 3D Opaque.shader" />
+    <None Include="Assets\Shapes\Shaders\FillUtils.cginc" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Torus Screen.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Quad LinearBurn.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
@@ -270,11 +273,13 @@
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Shaders\Portal\RFX4_PortalMask.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Sphere Darken.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture Multiplicative.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Disc LinearBurn.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Cuboid Lighten.shader" />
     <None Include="Assets\Shapes\Shaders\Shapes.cginc" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Disc Darken.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture Opaque.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Polyline 2D ColorBurn.shader" />
     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Shaders\RFX4_Tornado.shader" />
@@ -342,6 +347,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Sphere Subtractive.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Polygon Subtractive.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture Additive.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 3D Transparent.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 2D Lighten.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Quad Subtractive.shader" />
@@ -370,15 +376,19 @@
     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Shaders\RFX4_UberDistortion.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Cuboid Transparent.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 3D ColorDodge.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture Transparent.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Quad ColorBurn.shader" />
     <None Include="Assets\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.dll" />
+    <None Include="Assets\Shapes\Shaders\Core\Texture Core.cginc" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Cone Transparent.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Torus Lighten.shader" />
     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Shaders\Portal\NoStencilTransperentDiffuse.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Torus ColorBurn.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Cone LinearBurn.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Polygon Multiplicative.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture Subtractive.shader" />
     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\SceneResources\Other\CullOffMobileDiffuse.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture ColorBurn.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Cone Opaque.shader" />
     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Shaders\DemoMobileDiffuse.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Regular Polygon Subtractive.shader" />
@@ -406,6 +416,7 @@
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Rect Additive.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 2D Darken.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Cuboid Darken.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture ColorDodge.shader" />
     <None Include="Assets\Shapes\Shaders\Core\Cuboid Core.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 3D Subtractive.shader" />
@@ -416,12 +427,14 @@
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Torus ColorDodge.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 3D ColorBurn.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture LinearBurn.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Torus Additive.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Triangle LinearBurn.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Polygon Screen.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Polyline 2D Darken.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Quad Lighten.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture Lighten.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Triangle Opaque.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Triangle ColorDodge.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Sphere Additive.shader" />
@@ -429,6 +442,7 @@
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Regular Polygon Screen.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Line 3D LinearBurn.shader" />
+    <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Texture Darken.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Triangle Lighten.shader" />
     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Shaders\RFX4_CutoutBorder.shader" />
     <None Include="Assets\Shapes\Shaders\Generated Shaders\Resources\Sphere ColorDodge.shader" />
@@ -657,7 +671,7 @@
       <HintPath>Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library\PackageCache\com.unity.burst@1.4.8\Unity.Burst.Unsafe.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.burst@1.4.9\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="UModelerCommon">
       <HintPath>Assets\tripolygon\UModeler\Scripts\UModelerCommon.dll</HintPath>

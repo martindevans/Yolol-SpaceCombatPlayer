@@ -1,7 +1,6 @@
 using Assets.Scripts.Curves;
 using Shapes;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
@@ -28,13 +27,14 @@ namespace Assets.Scripts
             {
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.LineGeometry = LineGeometry.Volumetric3D;
-                Draw.LineThickness = 2;
+                Draw.Thickness = 2;
                 Draw.Color = new Color(1, 0, 0, 0.75f);
 
                 _transform ??= transform;
                 var start = _transform.parent.position;
 
-                Draw.LineDashed(start, target);
+                Draw.UseDashes = true;
+                Draw.Line(start, target);
             }
         }
     }

@@ -295,7 +295,7 @@
       <HintPath>Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library\PackageCache\com.unity.burst@1.4.8\Unity.Burst.Unsafe.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.burst@1.4.9\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="UModelerCommon">
       <HintPath>Assets\tripolygon\UModeler\Scripts\UModelerCommon.dll</HintPath>

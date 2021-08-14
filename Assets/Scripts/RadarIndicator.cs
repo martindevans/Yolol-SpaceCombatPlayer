@@ -56,7 +56,7 @@ namespace Assets.Scripts
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.LineGeometry = LineGeometry.Flat2D;
                 Draw.Matrix = Matrix4x4.TRS(transform.position, Quaternion.Euler(0, 0, 0), Vector3.one);
-                Draw.LineThickness = 2;
+                Draw.Thickness = 2;
                 Draw.Color = new Color(0.8f, 0, 0, 0.15f);
 
                 var radius = Mathf.Tan(Mathf.Deg2Rad * angle / 2) * range;

@@ -1,6 +1,5 @@
 using Shapes;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
@@ -20,8 +19,10 @@ namespace Assets.Scripts
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
                 Draw.Matrix = Matrix4x4.TRS(bot, Quaternion.Euler(90, 0, 0), Vector3.one);
                 Draw.Color = Color.white;
-                Draw.RingThickness = 3;
-                Draw.RingDashed(Vector3.zero, Quaternion.identity, new DashStyle(2), 55);
+                Draw.Thickness = 3;
+                Draw.DashStyle = DashStyle.MeterDashes(DashType.Basic, 2, 2);
+                Draw.UseDashes = true;
+                Draw.Ring(Vector3.zero, Quaternion.identity, 55);
             }
         }
     }

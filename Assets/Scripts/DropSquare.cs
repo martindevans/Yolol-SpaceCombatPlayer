@@ -42,7 +42,7 @@ namespace Assets.Scripts
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
                 Draw.Matrix = Matrix4x4.TRS(bot, Quaternion.Euler(90, 45, 0), Vector3.one);
                 Draw.Color = Color.red;
-                Draw.RectangleThickness = 2.5f;
+                Draw.Thickness = 2.5f;
                 Draw.RectangleBorder(Vector3.zero, new Vector2(25, 25), Mathf.Lerp(0, Thickness, _age / LerpInTime));
             }
         }

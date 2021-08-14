@@ -60,6 +60,7 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawOverloads.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesAssets.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\PointPath.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Interfaces\IDashable.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\DashSnapping.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\TextAlign.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\DashSpace.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MetaMpbShapes.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Polyline.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\DashStyle.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Interfaces\GeneratedInterfaceImplementations.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DiscColors.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Torus.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawStateMatrix.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MetaMpb.cs" />
@@ -79,13 +82,16 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesMeshUtils.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\DestroyOnAssemblyReload.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesExtensions.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MetaMpbTexture.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\StyleStack.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\DiscType.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\RegularPolygon.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesIO.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\StateStack.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\ShapesRenderPass.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawOverloadsObsolete.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesMeshGen.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Interfaces\IFillable.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesAssemblyConfig.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\RenderPipeline.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\ShapeRenderer.cs" />
@@ -96,9 +102,10 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\PolygonPath.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\ArcEndCap.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\PolylinePath.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\GradientFillStack.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\FillType.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesMath.cs" />
-    <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\ShapeFill.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\GradientFill.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawState.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\ImmediateModeShapeDrawer.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MatrixStack.cs" />
@@ -107,14 +114,17 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\RenderState.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Triangle.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\Draw.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\TextStyle.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawCommand.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Rectangle.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\LineGeometry.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\UnityInfo.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\TexturePlacement.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\IMMaterialPool.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawStateStyle.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Quad.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\ShapeDrawState.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DashStack.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawStyle.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\PolylineGeometry.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesConfig.cs" />
@@ -135,6 +145,7 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\PolylinePoint.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\ShapeRendererFillable.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\ThicknessSpace.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MetaMpbInterfaces.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\DashType.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\ShapesRenderFeature.cs" />
   </ItemGroup>
@@ -389,7 +400,7 @@
       <HintPath>Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library\PackageCache\com.unity.burst@1.4.8\Unity.Burst.Unsafe.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.burst@1.4.9\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="UModelerEditor">
       <HintPath>Assets\tripolygon\UModeler\Scripts\Editor\UModelerEditor.dll</HintPath>

@@ -29,7 +29,7 @@ namespace Assets.Scripts
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.LineGeometry = LineGeometry.Volumetric3D;
                 Draw.Color = top.y > bot.y ? ColorUp : ColorDown;
-                Draw.LineThickness = 2;
+                Draw.Thickness = 2;
                 Draw.Line(top, bot);
             }
         }

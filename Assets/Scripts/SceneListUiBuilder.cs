@@ -16,7 +16,7 @@ namespace Assets.Scripts
         private bool _orderDirty = false;
         private bool _showTitles = true;
 
-        private Dictionary<uint, string> _teams = new Dictionary<uint, string>();
+        private readonly Dictionary<uint, string> _teams = new Dictionary<uint, string>();
         private readonly List<ShipUI> _ships = new List<ShipUI>();
 
         public void AddSpaceShip([NotNull] GameObject go, uint? teamId, string teamName)
@@ -35,6 +35,7 @@ namespace Assets.Scripts
             controller.SetShipGameObject(go);
 
             _ships.Add(new ShipUI(go, controller, rect, teamId.Value, teamName));
+            _teams[teamId.Value] = teamName;
 
             _orderDirty = true;
         }
@@ -62,11 +63,11 @@ namespace Assets.Scripts
 
             if (_showTitles)
             {
-                var groups = _ships.GroupBy(a => a.TeamName);
+                var groups = _ships.GroupBy(a => a.TeamId);
                 foreach (var group in groups)
                 {
                     var title = Instantiate(TeamNameUiPrefab, GetComponent<RectTransform>());
-                    title.GetComponentInChildren<TextMeshProUGUI>().text = group.Key;
+                    title.GetComponentInChildren<TextMeshProUGUI>().text = _teams[group.Key];
                     title.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(20, YPosition(yOff), 0);
                     yOff++;
 

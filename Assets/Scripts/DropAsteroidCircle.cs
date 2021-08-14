@@ -1,6 +1,5 @@
 using Shapes;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
@@ -11,7 +10,7 @@ namespace Assets.Scripts
 
         public Transform ScaleReference;
 
-        private readonly DashStyle _dashStyle = new DashStyle(2);
+        private readonly DashStyle _dashStyle = DashStyle.MeterDashes(DashType.Basic, 2, 2, DashSnapping.Tiling);
 
         public override void DrawShapes(Camera cam)
         {
@@ -27,8 +26,10 @@ namespace Assets.Scripts
                 Draw.BlendMode = ShapesBlendMode.Screen;
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
                 Draw.Color = Color.gray;
-                Draw.RingThickness = 3;
-                Draw.RingDashed(bot, Quaternion.Euler(90, 0, 0), _dashStyle, scale);
+                Draw.Thickness = 3;
+                Draw.DashStyle = _dashStyle;
+                Draw.UseDashes = true;
+                Draw.Ring(bot, Quaternion.Euler(90, 0, 0), scale);
             }
         }
     }

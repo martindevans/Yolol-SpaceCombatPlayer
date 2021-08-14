@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Shapes\Scripts\Editor\Utils\Codegen\CodegenMpbs.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\SceneEditGizmos.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Components\ShapeRendererEditor.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\SceneDiscEditor.cs" />
@@ -73,9 +74,11 @@
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\Codegen\IParamSelectors.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Components\QuadEditor.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Components\RectangleEditor.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Editor\Utils\Codegen\CodegenInterfaces.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Components\CuboidEditor.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\Codegen\ShaderPassType.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Components\PolygonEditor.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Editor\Utils\Codegen\CodeWriter.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Components\DiscEditor.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\ShapesInfo.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Windows\AboutWindow.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Assets\Shapes\Scripts\Editor\Components\SphereEditor.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\Codegen\RenderPipelineExtensions.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Components\ShapeGroupEditor.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Editor\Windows\ShapesConfigInspector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shapes\Scripts\Editor\Shapes Editor.asmdef" />
@@ -360,7 +364,7 @@
       <HintPath>Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library\PackageCache\com.unity.burst@1.4.8\Unity.Burst.Unsafe.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.burst@1.4.9\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="UModelerEditor">
       <HintPath>Assets\tripolygon\UModeler\Scripts\Editor\UModelerEditor.dll</HintPath>

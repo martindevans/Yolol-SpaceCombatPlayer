@@ -58,7 +58,7 @@ namespace Assets.Scripts
                 Draw.DiscGeometry = DiscGeometry.Flat2D;
                 Draw.Matrix = Matrix4x4.TRS(bot, Quaternion.Euler(90, 0, 0), Vector3.one);
                 Draw.Color = Color.red;
-                Draw.RingThickness = _midRadius - _innerRadius;
+                Draw.Thickness = _midRadius - _innerRadius;
 
                 const float count = 10;
                 for (var i = 0; i < count; i++)
@@ -69,11 +69,10 @@ namespace Assets.Scripts
 
                 if (_thickness > 0.01f)
                 {
-                    Draw.RingThickness = _thickness;
-                    Draw.RingDashStyle.snap = DashSnapping.Tiling;
-                    Draw.RingDashStyle.space = DashSpace.FixedCount;
-                    Draw.RingDashStyle.size = 180;
-                    Draw.RingDashed(_outerRadius + 5);
+                    Draw.Thickness = _thickness;
+                    Draw.DashStyle = DashStyle.RelativeDashes(DashType.Basic, 3, 1, DashSnapping.Tiling);
+                    Draw.UseDashes = true;
+                    Draw.Ring(_outerRadius + 5);
                 }
             }
         }
