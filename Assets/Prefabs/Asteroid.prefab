@@ -379,6 +379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useCullingMasks: 0
+  ColorUp: {r: 0, g: 1, b: 0, a: 0.5}
+  ColorDown: {r: 0.1922, g: 0.1843, b: 0.9994, a: 0.5}
 --- !u!114 &2767191662963513567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,4 +395,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useCullingMasks: 0
   ScaleReference: {fileID: 634679694502259021}
-  DrawDashed: 0

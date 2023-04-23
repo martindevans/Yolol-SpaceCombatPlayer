@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.14</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.18</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>2020.3.23f1</UnityVersion>
@@ -63,6 +63,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_CustomLight.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_TornadoParticles.cs" />
+    <Compile Include="Assets\Scripts\CMCameraDistanceFromScrollWheel.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\SceneResources\Other\RFX4_FPS.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_CameraShake.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\Curves\SphereColliderRadiusCurve.cs" />
     <Compile Include="Assets\Scripts\Curves\RadarDirectionCurve.cs" />
     <Compile Include="Assets\Scripts\SwapVCamWhenGroupEmpty.cs" />
+    <Compile Include="Assets\Scripts\CMFreelookOnlyWhenRightMouseDown.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\AmmoBar.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\Crosshair.cs" />
@@ -190,6 +192,7 @@
     <Compile Include="Assets\Scripts\DebugSphereVisualiser.cs" />
     <Compile Include="Assets\Scripts\Curves\BaseVector3DirectionCurve.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\CMOffsetY.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\SceneResources\Other\RFX4_MouseOrbit.cs" />
     <Compile Include="Assets\Scripts\TimeController.cs" />
     <Compile Include="Assets\Scripts\Curves\GunTurretBearingCurve.cs" />
