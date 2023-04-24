@@ -180,44 +180,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 652701d167252f9418e4401f5dd2cd22, type: 3}
---- !u!1 &31220370 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 412455333641638101, guid: 5f3fd99bfdb93ed4e8977c91d5d9286b, type: 3}
-  m_PrefabInstance: {fileID: 1494704760855629077}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &31220374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31220370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6779668d55814a4aaa01ee979a415b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  XAxis: Mouse X
-  YAxis: Mouse Y
-  ZAxis: Mouse ScrollWheel
---- !u!114 &31220375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31220370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2969e208bc0b88f488b0674b86e35d55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SensitivityY: 11
-  SensitivityScroll: 99
-  MinZoom: 50
-  MaxZoom: 200
-  MaxYOrbitFactor: 1
-  InvertY: 1
 --- !u!1 &708461580
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +262,7 @@ Transform:
   m_LocalRotation: {x: 0.28504455, y: 0.44636354, z: -0.15248117, w: 0.83442116}
   m_LocalPosition: {x: 297.40448, y: 65.4, z: 198.43495}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -506,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -538,6 +502,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -631,6 +596,7 @@ Transform:
   m_LocalRotation: {x: 0.6479029, y: -0.6328194, z: 0.19126984, w: 0.37838787}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1

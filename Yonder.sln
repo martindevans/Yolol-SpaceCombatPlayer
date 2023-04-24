@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceGraphicsToolkit.Terrain", "SpaceGraphicsToolkit.Terrain.csproj", "{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapesSamples", "ShapesSamples.csproj", "{499D109B-22D1-6F70-E994-92843A857D1F}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapesEditor", "ShapesEditor.csproj", "{B25C5647-1C6E-D2E5-9DE6-CBCCB778DCBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{41206AF4-8EA9-DC4C-321C-EC0639E1DF23}"
@@ -35,6 +37,10 @@ Global
 		{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{499D109B-22D1-6F70-E994-92843A857D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{499D109B-22D1-6F70-E994-92843A857D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{499D109B-22D1-6F70-E994-92843A857D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{499D109B-22D1-6F70-E994-92843A857D1F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B25C5647-1C6E-D2E5-9DE6-CBCCB778DCBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B25C5647-1C6E-D2E5-9DE6-CBCCB778DCBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B25C5647-1C6E-D2E5-9DE6-CBCCB778DCBE}.Release|Any CPU.ActiveCfg = Release|Any CPU

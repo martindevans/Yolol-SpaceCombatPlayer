@@ -172,7 +172,7 @@ namespace Assets.Scripts
 
         private void ApplyFilter()
         {
-            var filter = FilterInput.text;
+            var filter = FilterInput.text.ToLower();
 
             // Store the count of active items so far (to correctly offset things into position)
             var activeCount = 0;
@@ -186,7 +186,7 @@ namespace Assets.Scripts
                 var rect = go.GetComponent<RectTransform>();
 
                 // Deactivate it if the filter string isn't found
-                if (!go.name.Contains(filter))
+                if (!string.IsNullOrWhiteSpace(filter) && !go.name.ToLower().Contains(filter))
                 {
                     go.SetActive(false);
                     continue;

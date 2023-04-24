@@ -10,9 +10,9 @@ namespace Assets.Scripts
     public class CMFreelookOnlyWhenRightMouseDown
         : MonoBehaviour, AxisState.IInputAxisProvider
     {
-        public Vector2 Deadband = new Vector2(6, 7);
+        public Vector2 Deadband = new(3, 4);
         private float2 _deadbandAccumulator;
-        private bool2 _deadbandExceeded;
+        private float2 _deadbandFactor;
         private float2 _delta;
 
         public string XAxis = "Mouse X";
@@ -29,16 +29,12 @@ namespace Assets.Scripts
             if (!_pressed)
                 return 0;
 
-            switch (axis)
+            return axis switch
             {
-                case 0:
-                    return _deadbandExceeded.x ? _delta.x : 0;
-
-                case 1:
-                    return _deadbandExceeded.y ? _delta.y : 0;
-            }
-
-            return 0;
+                0 => _delta.x * _deadbandFactor.x,
+                1 => _delta.y * _deadbandFactor.y,
+                _ => 0
+            };
         }
 
         private void Update()
@@ -47,9 +43,9 @@ namespace Assets.Scripts
             _pressed = Input.GetMouseButton(1);
             if (!_pressed)
             {
-                _deadbandAccumulator = Vector2.zero;
-                _delta = Vector2.zero;
-                _deadbandExceeded = new bool2(false, false);
+                _deadbandAccumulator = 0;
+                _delta = 0;
+                _deadbandFactor = 0;
                 return;
             }
 
@@ -61,9 +57,13 @@ namespace Assets.Scripts
 
             // Accumulate total change into deadbands
             _deadbandAccumulator += math.abs(_delta);
-            _deadbandExceeded |= _deadbandAccumulator > Deadband;
 
-            Debug.Log(_deadbandAccumulator);
+            // Calculate factor for movement sensitivity based on how much the deadband is active
+            _deadbandFactor = math.saturate(math.select(
+                math.pow(_deadbandAccumulator / (float2)Deadband, 2),
+                new float2(1, 1),
+                _deadbandAccumulator > Deadband
+            ));
         }
     }
 }
