@@ -159,6 +159,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_ShaderProperties.cs" />
+    <Compile Include="Assets\Scripts\Curves\ElementXPositionCurve.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\ParticleSysem\RFX4_ParticleGravityDelay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_DeactivateRigidbodyByTime.cs" />
@@ -709,6 +710,12 @@
     </Reference>
     <Reference Include="UModelerCommon">
       <HintPath>Assets\tripolygon\UModeler\Scripts\UModelerCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>D:\Unity\2021.3.21f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>D:\Unity\2021.3.21f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity\2021.3.21f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

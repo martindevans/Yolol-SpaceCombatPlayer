@@ -11,8 +11,14 @@ namespace Assets.Scripts
 
         private void Start()
         {
-            _radius = GetComponentInParent<SphereColliderRadiusCurve>();
             _transform = transform;
+
+            _radius = GetComponentInParent<SphereColliderRadiusCurve>();
+            if (_radius == null)
+            {
+                Debug.LogError("SetScaleFromSphereSize cannot find radius curve");
+                enabled = false;
+            }
         }
 
         private void Update()

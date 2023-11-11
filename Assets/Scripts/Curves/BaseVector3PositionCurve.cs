@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -8,9 +9,9 @@ namespace Assets.Scripts.Curves
     public abstract class BaseVector3PositionCurve
         : MonoBehaviour, ICurveDeserialiser
     {
-        private readonly AnimationCurve _curveX = new AnimationCurve();
-        private readonly AnimationCurve _curveY = new AnimationCurve();
-        private readonly AnimationCurve _curveZ = new AnimationCurve();
+        private AnimationCurve _curveX = new();
+        private AnimationCurve _curveY = new();
+        private AnimationCurve _curveZ = new();
 
         public Vector3 Value { get; private set; }
 
@@ -41,6 +42,16 @@ namespace Assets.Scripts.Curves
                 FirstKeyTime = Math.Min(FirstKeyTime, t);
                 LastKeyTime = Math.Max(LastKeyTime, t);
             }
+        }
+
+        public void Load3Curves(BaseFloatCurve x, BaseFloatCurve y, BaseFloatCurve z)
+        {
+            _curveX = x.GetCurve();
+            _curveY = y.GetCurve();
+            _curveZ = z.GetCurve();
+
+            FirstKeyTime = Math.Min(Math.Min(_curveX.keys[0].time, _curveY.keys[0].time), _curveZ.keys[0].time);
+            LastKeyTime = Math.Max(Math.Max(_curveX.keys.Last().time, _curveY.keys.Last().time), _curveZ.keys.Last().time);
         }
 
         [UsedImplicitly] protected virtual void Update()

@@ -1,6 +1,7 @@
+#nullable enable
+
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Curves;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
@@ -16,15 +17,15 @@ namespace Assets.Scripts
         private bool _orderDirty = false;
         private bool _showTitles = true;
 
-        private readonly Dictionary<uint, string> _teams = new Dictionary<uint, string>();
+        private readonly Dictionary<string, string> _teams = new Dictionary<string, string>();
         private readonly List<ShipUI> _ships = new List<ShipUI>();
 
-        public void AddSpaceShip([NotNull] GameObject go, uint? teamId, string teamName)
+        public void AddSpaceShip([NotNull] GameObject go, string? teamId, string? teamName)
         {
-            _showTitles &= teamId.HasValue;
+            _showTitles &= teamId != null;
             _showTitles &= teamName != null;
 
-            teamId ??= uint.MaxValue;
+            teamId ??= "none";
             teamName ??= "Unknown Aggressor";
 
             var ui = Instantiate(ShipUiPrefab, GetComponent<RectTransform>());
@@ -34,8 +35,8 @@ namespace Assets.Scripts
 
             controller.SetShipGameObject(go);
 
-            _ships.Add(new ShipUI(go, controller, rect, teamId.Value, teamName));
-            _teams[teamId.Value] = teamName;
+            _ships.Add(new ShipUI(go, controller, rect, teamId, teamName));
+            _teams[teamId] = teamName;
 
             _orderDirty = true;
         }
@@ -99,10 +100,10 @@ namespace Assets.Scripts
             public ShipUiElement Controller { get; }
             public RectTransform RectTransform { get; }
 
-            public uint TeamId { get; }
+            public string TeamId { get; }
             public string TeamName { get; }
 
-            public ShipUI(GameObject ship, ShipUiElement controller, RectTransform rectTransform, uint teamId, string teamName)
+            public ShipUI(GameObject ship, ShipUiElement controller, RectTransform rectTransform, string teamId, string teamName)
             {
                 Ship = ship;
                 Controller = controller;

@@ -100,7 +100,7 @@ namespace Assets.Scripts
                 var type = entity["Type"].Value<string>();
                 var curves = (JArray)entity["Curves"];
 
-                var teamid = entity["TeamId"]?.Value<uint>();
+                var teamid = entity["TeamId"]?.Value<string>();
                 var teamname = entity["TeamName"]?.Value<string>();
 
                 switch (type)

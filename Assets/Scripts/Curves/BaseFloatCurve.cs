@@ -14,6 +14,9 @@ namespace Assets.Scripts.Curves
         public float MaxValue { get; private set; }
         public float Value { get; private set; }
 
+        public float MinTime { get; private set; }
+        public float MaxTime { get; private set; }
+
         public void LoadCurve(JToken curve)
         {
             var type = curve["Type"].Value<string>();
@@ -73,6 +76,9 @@ namespace Assets.Scripts.Curves
             MinValue = float.MaxValue;
             MaxValue = float.MinValue;
 
+            MinTime = float.MaxValue;
+            MaxTime = float.MinValue;
+
             for (var i = 0; i < keys.Length; i++)
             {
                 var t = keys[i] / 1000f;
@@ -82,6 +88,9 @@ namespace Assets.Scripts.Curves
 
                 MinValue = Math.Min(MinValue, x);
                 MaxValue = Math.Max(MaxValue, x);
+
+                MinTime = Math.Min(MinTime, t);
+                MaxTime = Math.Max(MaxTime, t);
             }
         }
 
@@ -89,6 +98,9 @@ namespace Assets.Scripts.Curves
         {
             MinValue = float.MaxValue;
             MaxValue = float.MinValue;
+
+            MinTime = float.MaxValue;
+            MaxTime = float.MinValue;
 
             var keys = (JArray)curve["Keys"];
             foreach (var key in keys)
@@ -100,12 +112,25 @@ namespace Assets.Scripts.Curves
 
                 MinValue = Math.Min(MinValue, x);
                 MaxValue = Math.Max(MaxValue, x);
+
+                MinTime = Math.Min(MinTime, t);
+                MaxTime = Math.Max(MaxTime, t);
             }
         }
 
         [UsedImplicitly] protected virtual void Update()
         {
             Value = _curve.Evaluate(Time.timeSinceLevelLoad);
+        }
+
+        public float Evaluate(float time)
+        {
+            return _curve.Evaluate(time);
+        }
+
+        public AnimationCurve GetCurve()
+        {
+            return _curve;
         }
     }
 }

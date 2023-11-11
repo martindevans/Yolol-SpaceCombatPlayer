@@ -18,14 +18,36 @@ namespace Assets.Scripts
                 return c;
             }
 
+            var compositePosition = false;
+
             foreach (var curve in curves)
             {
                 var curveName = curve["Name"].Value<string>();
-
                 switch (curveName)
                 {
                     case "position": {
                         Add<TransformPositionCurve>(curve);
+                        break;
+                    }
+
+                    case "position.x":
+                    {
+                        compositePosition = true;
+                        Add<ElementXPositionCurve>(curve);
+                        break;
+                    }
+
+                    case "position.y":
+                    {
+                        compositePosition = true;
+                        Add<ElementYPositionCurve>(curve);
+                        break;
+                    }
+
+                    case "position.z":
+                    {
+                        compositePosition = true;
+                        Add<ElementZPositionCurve>(curve);
                         break;
                     }
 
@@ -146,6 +168,14 @@ namespace Assets.Scripts
                         Debug.LogError($"Unknown Curve Name: `{curveName}`");
                         break;
                 }
+            }
+
+            if (compositePosition)
+            {
+                var x = GetComponent<ElementXPositionCurve>();
+                var y = GetComponent<ElementYPositionCurve>();
+                var z = GetComponent<ElementZPositionCurve>();
+                gameObject.AddComponent<TransformPositionCurve>().Load3Curves(x, y, z);
             }
         }
     }
