@@ -144,6 +144,24 @@ namespace Assets.Scripts
                         break;
                     }
 
+                    case "radar_target.x":
+                    {
+                        Add<ElementXRadarTargetCurve>(curve);
+                        break;
+                    }
+
+                    case "radar_target.y":
+                    {
+                        Add<ElementYRadarTargetCurve>(curve);
+                        break;
+                    }
+
+                    case "radar_target.z":
+                    {
+                        Add<ElementZRadarTargetCurve>(curve);
+                        break;
+                    }
+
                     case "sphere_collider_radius": {
                         Add<SphereColliderRadiusCurve>(curve);
                         break;

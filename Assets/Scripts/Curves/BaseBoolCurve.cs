@@ -8,28 +8,40 @@ namespace Assets.Scripts.Curves
     public class BaseBoolCurve
         : MonoBehaviour, ICurveDeserialiser
     {
-        private readonly AnimationCurve _curve = new AnimationCurve();
+        private AnimationCurve _curve = new AnimationCurve();
 
         public bool Value { get; private set; }
 
         public void LoadCurve(JToken curve)
         {
             var type = curve["Type"].Value<string>();
-            if (type != "Boolean")
-                throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has typed `{type}` expected `Boolean`");
 
-            float? state = null;
-            var keys = (JArray)curve["Keys"];
-            foreach (var key in keys)
+            if (type == "Single_r16")
             {
-                var t = (float)key["T"] / 1000f;
-                var x = (float?)key["V"] ?? 0;
+                var g = new GameObject();
+                var f = g.AddComponent<StandaloneFloatCurve>();
+                f.LoadCurve(curve);
+                _curve = f.Curve;
+                Destroy(g);
+            }
+            else
+            {
+                if (type != "Boolean")
+                    throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has typed `{type}` expected `Boolean`");
 
-                if (state.HasValue)
-                    _curve.AddKey(new Keyframe(t - 0.001f, state.Value, 0, 0, 0, 0));
-                _curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
+                float? state = null;
+                var keys = (JArray)curve["Keys"];
+                foreach (var key in keys)
+                {
+                    var t = (float)key["T"] / 1000f;
+                    var x = (float?)key["V"] ?? 0;
 
-                state = x;
+                    if (state.HasValue)
+                        _curve.AddKey(new Keyframe(t - 0.001f, state.Value, 0, 0, 0, 0));
+                    _curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
+
+                    state = x;
+                }
             }
         }
 

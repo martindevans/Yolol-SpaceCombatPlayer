@@ -7,15 +7,15 @@ namespace Assets.Scripts
     public class RadarTargetIndicator
         : ImmediateModeShapeDrawer
     {
-        private RadarTargetCurve _targetCurve;
+        private IRadarTargetCurve _targetCurve;
         private Transform _transform;
 
         public Vector3 FakeTarget;
 
         public override void DrawShapes(Camera cam)
         {
-            _targetCurve ??= GetComponentInParent<RadarTargetCurve>();
-            var target = _targetCurve?.Value ?? Vector3.zero;
+            _targetCurve ??= GetComponentInParent<IRadarTargetCurve>();
+            var target = _targetCurve?.Position ?? Vector3.zero;
 
             if (!Application.isPlaying)
                 target = FakeTarget;

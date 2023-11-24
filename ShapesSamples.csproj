@@ -63,12 +63,12 @@
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\Crosshair.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\Compass.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\FpsController.cs" />
+    <Compile Include="Assets\Shapes\Samples\Assets\Scripts\IMCanvasSample.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\ChargeBar.cs" />
+    <Compile Include="Assets\Shapes\Samples\Assets\Scripts\IMPanelSample.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\IMColorPickerRenderer.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\IMColorPickerInteraction.cs" />
     <Compile Include="Assets\Shapes\Samples\Assets\Scripts\SpinningColorDiscs.cs" />
-    <Compile Include="Assets\Shapes\Samples\Assets\Scripts\IMCanvasSample.cs" />
-    <Compile Include="Assets\Shapes\Samples\Assets\Scripts\IMPanelSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shapes\Samples\Shapes Samples.asmdef" />

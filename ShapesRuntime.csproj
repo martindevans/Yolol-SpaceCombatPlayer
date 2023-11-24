@@ -70,11 +70,13 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\LineEndCap.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesMaterialUtils.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MetaMpbShapes.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\ExpandoList.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Polyline.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\DashStyle.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Interfaces\GeneratedInterfaceImplementations.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DiscColors.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Torus.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\ImmediateModePanel.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawStateMatrix.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MetaMpb.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\HDRPCustomPassManager.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawOverloadsObsolete.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesMeshGen.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Interfaces\IFillable.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MetaMpbCustomMesh.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesAssemblyConfig.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\RenderPipeline.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\ShapeRenderer.cs" />
@@ -103,6 +106,7 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\ShapesBlendMode.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\PolygonPath.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\ArcEndCap.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesMeshPool.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\PolylinePath.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\GradientFillStack.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\FillType.cs" />
@@ -118,11 +122,13 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Triangle.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\Draw.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\TextStyle.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesTextPool.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawCommand.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Rectangle.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\LineGeometry.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\UnityInfo.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\TexturePlacement.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\ImmediateModeCanvas.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\IMMaterialPool.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\DrawStateStyle.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Components\Quad.cs" />
@@ -151,12 +157,6 @@
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MetaMpbInterfaces.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\DashType.cs" />
     <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\ShapesRenderFeature.cs" />
-    <Compile Include="Assets\Shapes\Scripts\Runtime\Microtypes\ExpandoList.cs" />
-    <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesMeshPool.cs" />
-    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\ImmediateModePanel.cs" />
-    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\MetaMpbCustomMesh.cs" />
-    <Compile Include="Assets\Shapes\Scripts\Runtime\Immediate Mode\ImmediateModeCanvas.cs" />
-    <Compile Include="Assets\Shapes\Scripts\Runtime\Utils\ShapesTextPool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shapes\Scripts\Runtime\Shapes Runtime.asmdef" />

@@ -8,7 +8,7 @@ namespace Assets.Scripts.Curves
     public abstract class BaseFloatCurve
         : MonoBehaviour, ICurveDeserialiser
     {
-        private readonly AnimationCurve _curve = new AnimationCurve();
+        public AnimationCurve Curve = new AnimationCurve();
 
         public float MinValue { get; private set; }
         public float MaxValue { get; private set; }
@@ -84,7 +84,7 @@ namespace Assets.Scripts.Curves
                 var t = keys[i] / 1000f;
                 var x = values[i];
 
-                _curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
+                Curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
 
                 MinValue = Math.Min(MinValue, x);
                 MaxValue = Math.Max(MaxValue, x);
@@ -108,7 +108,7 @@ namespace Assets.Scripts.Curves
                 var t = (float)key["T"] / 1000f;
                 var x = (float?)key["V"] ?? 0;
 
-                _curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
+                Curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
 
                 MinValue = Math.Min(MinValue, x);
                 MaxValue = Math.Max(MaxValue, x);
@@ -120,17 +120,22 @@ namespace Assets.Scripts.Curves
 
         [UsedImplicitly] protected virtual void Update()
         {
-            Value = _curve.Evaluate(Time.timeSinceLevelLoad);
+            Value = Curve.Evaluate(Time.timeSinceLevelLoad);
         }
 
         public float Evaluate(float time)
         {
-            return _curve.Evaluate(time);
+            return Curve.Evaluate(time);
         }
 
         public AnimationCurve GetCurve()
         {
-            return _curve;
+            return Curve;
         }
+    }
+
+    public class StandaloneFloatCurve
+        : BaseFloatCurve
+    {
     }
 }

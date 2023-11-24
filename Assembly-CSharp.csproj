@@ -107,6 +107,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\ParticleSysem\RFX4_ParticleTrail.cs" />
     <Compile Include="Assets\Scripts\DropTransform.cs" />
+    <Compile Include="Assets\Scripts\Curves\IRadarTargetCurve.cs" />
     <Compile Include="Assets\Scripts\Spin.cs" />
     <Compile Include="Assets\Scripts\ReplayMaster.cs" />
     <Compile Include="Assets\Scripts\RadarIndicator.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_RaycastCollision.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_EffectEvent.cs" />
+    <Compile Include="Assets\Scripts\Curves\ElementRadarTargetCurve.cs" />
     <Compile Include="Assets\Scripts\Curves\CompositeOrientationCurve.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\DropShellCircle.cs" />

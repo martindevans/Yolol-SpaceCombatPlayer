@@ -91,6 +91,7 @@
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\Codegen\CodegenDrawOverloads.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\SceneFillEditor.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\ShapesHandles.cs" />
+    <Compile Include="Assets\Shapes\Scripts\Editor\ImmediateModeShapeDrawerEditor.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\ScenePointEditor.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\ShapesColorFieldDrawer.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\Codegen\ShapesBlendModeExtensions.cs" />
@@ -102,7 +103,6 @@
     <Compile Include="Assets\Shapes\Scripts\Editor\Utils\Codegen\RenderPipelineExtensions.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Components\ShapeGroupEditor.cs" />
     <Compile Include="Assets\Shapes\Scripts\Editor\Windows\ShapesConfigInspector.cs" />
-    <Compile Include="Assets\Shapes\Scripts\Editor\ImmediateModeShapeDrawerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shapes\Scripts\Editor\Shapes Editor.asmdef" />
