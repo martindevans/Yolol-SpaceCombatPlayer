@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceGraphicsToolkit", "SpaceGraphicsToolkit.csproj", "{90D2968D-0802-4F48-F9A4-8AB36331A6D3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{1BE6DED0-77CE-1353-AA5B-EC1F3852C75A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapesEditor", "ShapesEditor.csproj", "{B25C5647-1C6E-D2E5-9DE6-CBCCB778DCBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapesRuntime", "ShapesRuntime.csproj", "{C0E5A35E-9B41-6408-8028-8702A5BF7E57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceGraphicsToolkit.Terrain", "SpaceGraphicsToolkit.Terrain.csproj", "{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CW.Common", "CW.Common.csproj", "{7B111AB1-61AF-B830-C93B-FC27CCAA26FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapesSamples", "ShapesSamples.csproj", "{499D109B-22D1-6F70-E994-92843A857D1F}"
 EndProject
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{90D2968D-0802-4F48-F9A4-8AB36331A6D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90D2968D-0802-4F48-F9A4-8AB36331A6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90D2968D-0802-4F48-F9A4-8AB36331A6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90D2968D-0802-4F48-F9A4-8AB36331A6D3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1BE6DED0-77CE-1353-AA5B-EC1F3852C75A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1BE6DED0-77CE-1353-AA5B-EC1F3852C75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BE6DED0-77CE-1353-AA5B-EC1F3852C75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,10 +31,10 @@ Global
 		{C0E5A35E-9B41-6408-8028-8702A5BF7E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0E5A35E-9B41-6408-8028-8702A5BF7E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0E5A35E-9B41-6408-8028-8702A5BF7E57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B111AB1-61AF-B830-C93B-FC27CCAA26FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B111AB1-61AF-B830-C93B-FC27CCAA26FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B111AB1-61AF-B830-C93B-FC27CCAA26FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B111AB1-61AF-B830-C93B-FC27CCAA26FD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{499D109B-22D1-6F70-E994-92843A857D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{499D109B-22D1-6F70-E994-92843A857D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{499D109B-22D1-6F70-E994-92843A857D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
