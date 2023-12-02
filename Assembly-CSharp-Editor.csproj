@@ -1022,20 +1022,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Cinemachine">
@@ -1052,17 +1052,9 @@
       <Project>{1BE6DED0-77CE-1353-AA5B-EC1F3852C75A}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="SpaceGraphicsToolkit.Terrain.csproj">
-      <Project>{598B4FA4-CD70-EC48-84E3-FFBB2E5DD77F}</Project>
-      <Name>SpaceGraphicsToolkit.Terrain</Name>
-    </ProjectReference>
     <ProjectReference Include="ShapesSamples.csproj">
       <Project>{499D109B-22D1-6F70-E994-92843A857D1F}</Project>
       <Name>ShapesSamples</Name>
-    </ProjectReference>
-    <ProjectReference Include="SpaceGraphicsToolkit.csproj">
-      <Project>{90D2968D-0802-4F48-F9A4-8AB36331A6D3}</Project>
-      <Name>SpaceGraphicsToolkit</Name>
     </ProjectReference>
     <ProjectReference Include="ShapesRuntime.csproj">
       <Project>{C0E5A35E-9B41-6408-8028-8702A5BF7E57}</Project>
@@ -1071,6 +1063,10 @@
     <ProjectReference Include="ShapesEditor.csproj">
       <Project>{B25C5647-1C6E-D2E5-9DE6-CBCCB778DCBE}</Project>
       <Name>ShapesEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="CW.Common.csproj">
+      <Project>{7B111AB1-61AF-B830-C93B-FC27CCAA26FD}</Project>
+      <Name>CW.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
