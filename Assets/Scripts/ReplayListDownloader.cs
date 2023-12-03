@@ -16,7 +16,8 @@ namespace Assets.Scripts
     public class ReplayListDownloader
         : MonoBehaviour
     {
-        private const string RootUrl = "https://referee.cylon.xyz/fleets/replays";
+        public const string ReplayDownloadUrl = "https://referee.cylon.xyz/protologic/replays/";
+        public const string PlayerUrl = "https://referee.cylon.xyz/protologic/player/";
 
         public TextMeshProUGUI ErrorMessage;
         public GameObject LoadingSpinner;
@@ -27,24 +28,31 @@ namespace Assets.Scripts
 
         private string _currentFilter = "";
         private bool _filterDirty = false;
+        public static bool SuppressUrlLoading = false;
 
         [UsedImplicitly] private void OnEnable()
         {
-#if UNITY_WEBGL && !UNITY_EDITOR
-            // Load direct links
-            var url = Application.absoluteURL;
-            if (!string.IsNullOrWhiteSpace(url))
+            if (!SuppressUrlLoading)
             {
-                var uri = new Uri(url);
-                var id = HttpUtility.ParseQueryString(uri.Query).Get("replay");
-                if (!string.IsNullOrWhiteSpace(id))
+#if UNITY_WEBGL && !UNITY_EDITOR
+                // Load direct links
+                var url = Application.absoluteURL;
+                Debug.Log("Application.absoluteURL:" + url);
+                if (!string.IsNullOrWhiteSpace(url))
                 {
-                    ReplayMaster.UrlToLoad = $"https://referee.cylon.xyz/fleets/replays/{id}";
-                    SceneManager.LoadScene("ReplayBattle");
-                    return;
+                    var uri = new Uri(url);
+                    var id = HttpUtility.ParseQueryString(uri.Query).Get("replay");
+                    if (!string.IsNullOrWhiteSpace(id))
+                    {
+                        Debug.Log("Loading replay specified in URL");
+                        ReplayMaster.UrlToLoad = $"{ReplayDownloadUrl}{id}";
+                        SceneManager.LoadScene("ReplayBattle");
+                        return;
+                    }
                 }
-            }
 #else
+            }
+
             var args = Environment.GetCommandLineArgs();
             var path = string.Join(" ", args.Skip(1));
 
@@ -80,7 +88,7 @@ namespace Assets.Scripts
 
                 try
                 {
-                    using var www = UnityWebRequest.Get(RootUrl);
+                    using var www = UnityWebRequest.Get(ReplayDownloadUrl);
 
                     www.SetRequestHeader("Accept", "application/json");
 
@@ -142,20 +150,28 @@ namespace Assets.Scripts
             var index = 0;
             foreach (var item in items)
             {
+                if (item.Name.EndsWith(".meta.json"))
+                    continue;
+
                 var button = Instantiate(ReplayButtonPrefab, ListContent);
                 button.gameObject.name = item.Name;
                 button.anchoredPosition = new Vector2(0, -40 * index++);
-                button.GetComponentInChildren<TextMeshProUGUI>().text = item.Name;
+                //button.GetComponentInChildren<TextMeshProUGUI>().text = item.Name;
 
                 var loader = button.GetComponentInChildren<LoadReplayOnClick>();
-                loader.Url = $"https://referee.cylon.xyz/fleets/replays/{item.Name}";
-                loader.PushUrl = $"https://referee.cylon.xyz/fleets/player/?replay={HttpUtility.UrlEncode(item.Name)}";
+                loader.Url = $"{ReplayDownloadUrl}{item.Name}";
+                loader.PushUrl = $"{PlayerUrl}?replay={HttpUtility.UrlEncode(item.Name)}";
+
+                var namer = button.GetComponentInChildren<ButtonNameSetter>();
+                namer.Url = $"{ReplayDownloadUrl}{item.Name}";
+                namer.enabled = true;
             }
 
             // Mark the filter as dirty to force it to be re-applied to this new list next frame
             _filterDirty = true;
         }
 
+        [UsedImplicitly]
         public void OnFilterStringChanged()
         {
             _filterDirty = true;

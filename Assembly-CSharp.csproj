@@ -146,6 +146,7 @@
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_TextureShaderProperties.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\ModalByScript.cs" />
     <Compile Include="Assets\Scripts\ShipUiElement.cs" />
+    <Compile Include="Assets\Scripts\ButtonNameSetter.cs" />
     <Compile Include="Assets\Scripts\Spin.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_MaterialQueue.cs" />
     <Compile Include="Assets\Starfield Skybox\Demo\Script\LookCamera.cs" />

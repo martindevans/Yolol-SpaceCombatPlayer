@@ -16,7 +16,7 @@ namespace Assets.Scripts
     public class ReplayMaster
         : MonoBehaviour
     {
-        public static string UrlToLoad = "https://referee.cylon.xyz/fleets/replays/DoNothing%20%28Nyefari%29%20vs%20template%20%28Martin%29%20%282023-04-17%2000:39:45Z%29";
+        public static string UrlToLoad = "";
 
         [SerializeField] public SceneListUiBuilder UiBuilder;
 
