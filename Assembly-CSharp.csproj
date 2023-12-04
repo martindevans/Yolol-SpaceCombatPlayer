@@ -75,6 +75,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\ParticleSysem\RFX4_ParticleGravityDelay.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_ShaderProperties.cs" />
+    <Compile Include="Assets\Scripts\Curves\DebugLineStartPosition.cs" />
     <Compile Include="Assets\Scripts\Curves\DebugSphereRadius.cs" />
     <Compile Include="Assets\Scripts\CMCameraDistanceFromScrollWheel.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\PBFilled.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_ShaderColorGradient.cs" />
     <Compile Include="Assets\Scripts\LoadReplayOnClick.cs" />
     <Compile Include="Assets\Scripts\Curves\ICurveDeserialiser.cs" />
+    <Compile Include="Assets\Scripts\Curves\CompositeDebugSphere.cs" />
     <Compile Include="Assets\Scripts\Curves\GunTurretElevationCurve.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_CustomLight.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\DemoManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\CustomDropdown.cs" />
+    <Compile Include="Assets\Scripts\Curves\DebugLineEndPosition.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_DeactivateByTime.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_WindCurves.cs" />
     <Compile Include="Assets\Scripts\Curves\RunningLightCurve.cs" />
@@ -170,6 +173,7 @@
     <Compile Include="Assets\Scripts\LoadScene.cs" />
     <Compile Include="Assets\Scripts\Exit.cs" />
     <Compile Include="Assets\Scripts\SelfDisableWebGl.cs" />
+    <Compile Include="Assets\Scripts\Curves\DebugLineColor.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\ParticleSysem\RFX4_CollisionPropertyDeactiavtion.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\DropCircle.cs" />
@@ -222,6 +226,7 @@
     <Compile Include="Assets\Scripts\DropLine.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\RadialSlider.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_RotateAround.cs" />
+    <Compile Include="Assets\Scripts\DebugLineVisualiser.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_AudioCurves.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\ModalDialog.cs" />

@@ -19,6 +19,8 @@ namespace Assets.Scripts
             }
 
             var compositePosition = false;
+            var compositeDebugSpherePos = false;
+            var compositeDebugSphereCol = false;
 
             foreach (var curve in curves)
             {
@@ -172,6 +174,27 @@ namespace Assets.Scripts
                         break;
                     }
 
+                    case "debug_sphere_position.x":
+                    {
+                        compositeDebugSpherePos = true;
+                        Add<ElementXDebugSpherePosition>(curve);
+                        break;
+                    }
+
+                    case "debug_sphere_position.y":
+                    {
+                        compositeDebugSpherePos = true;
+                        Add<ElementYDebugSpherePosition>(curve);
+                        break;
+                    }
+
+                    case "debug_sphere_position.z":
+                    {
+                        compositeDebugSpherePos = true;
+                        Add<ElementZDebugSpherePosition>(curve);
+                        break;
+                    }
+
                     case "debug_sphere_radius": {
                         Add<DebugSphereRadius>(curve);
                         break;
@@ -179,6 +202,90 @@ namespace Assets.Scripts
 
                     case "debug_sphere_color": {
                         Add<DebugSphereColor>(curve);
+                        break;
+                    }
+
+                    case "debug_sphere_color.x":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementXDebugSphereColor>(curve);
+                        break;
+                    }
+
+                    case "debug_sphere_color.y":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementYDebugSphereColor>(curve);
+                        break;
+                    }
+
+                    case "debug_sphere_color.z":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementZDebugSphereColor>(curve);
+                        break;
+                    }
+
+                    case "debug_line_color.x":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementXDebugLineColor>(curve);
+                        break;
+                    }
+
+                    case "debug_line_color.y":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementYDebugLineColor>(curve);
+                        break;
+                    }
+
+                    case "debug_line_color.z":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementZDebugLineColor>(curve);
+                        break;
+                    }
+
+                    case "debug_line_start_position.x":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementXDebugLineStartPosition>(curve);
+                        break;
+                    }
+
+                    case "debug_line_start_position.y":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementYDebugLineStartPosition>(curve);
+                        break;
+                    }
+
+                    case "debug_line_start_position.z":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementZDebugLineStartPosition>(curve);
+                        break;
+                    }
+
+                    case "debug_line_end_position.x":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementXDebugLineEndPosition>(curve);
+                        break;
+                    }
+
+                    case "debug_line_end_position.y":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementYDebugLineEndPosition>(curve);
+                        break;
+                    }
+
+                    case "debug_line_end_position.z":
+                    {
+                        compositeDebugSphereCol = true;
+                        Add<ElementZDebugLineEndPosition>(curve);
                         break;
                     }
 
@@ -195,6 +302,25 @@ namespace Assets.Scripts
                 var z = GetComponent<ElementZPositionCurve>();
                 gameObject.AddComponent<TransformPositionCurve>().Load3Curves(x, y, z);
             }
+
+            if (compositeDebugSpherePos)
+            {
+                var x = GetComponent<ElementXDebugSpherePosition>();
+                var y = GetComponent<ElementYDebugSpherePosition>();
+                var z = GetComponent<ElementZDebugSpherePosition>();
+                gameObject.AddComponent<DebugSpherePosition>().Load3Curves(x, y, z);
+            }
+
+            if (compositeDebugSphereCol)
+            {
+                var x = GetComponent<ElementXDebugSphereColor>();
+                var y = GetComponent<ElementYDebugSphereColor>();
+                var z = GetComponent<ElementZDebugSphereColor>();
+                gameObject.AddComponent<DebugSphereColor>().Load3Curves(x, y, z);
+            }
+
+            gameObject.AddComponent<DebugSphereVisualiser>();
+            gameObject.AddComponent<DebugLineVisualiser>();
         }
     }
 }

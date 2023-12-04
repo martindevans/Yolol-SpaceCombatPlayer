@@ -1,7 +1,6 @@
 using Assets.Scripts.Curves;
 using Shapes;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
@@ -37,7 +36,7 @@ namespace Assets.Scripts
                 Draw.Sphere(
                     _pos.Value,
                     _rad.Value,
-                    new Color(c.x, c.y, c.z, 0.5f)
+                    new Color(c.x, c.y, c.z, 0.1f)
                 );
             }
         }
