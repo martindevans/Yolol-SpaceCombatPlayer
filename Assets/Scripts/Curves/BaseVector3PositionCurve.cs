@@ -16,7 +16,10 @@ namespace Assets.Scripts.Curves
         public Vector3 Value { get; private set; }
 
         public float FirstKeyTime { get; private set; }
+        public Vector3 FirstKeyValue { get; private set; }
+
         public float LastKeyTime { get; private set; }
+        public Vector3 LastKeyValue { get; private set; }
 
         public void LoadCurve(JToken curve)
         {
@@ -27,6 +30,7 @@ namespace Assets.Scripts.Curves
             FirstKeyTime = float.MaxValue;
             LastKeyTime = float.MinValue;
 
+            var initFirstKey = true;
             var keys = (JArray)curve["Keys"];
             foreach (var key in keys)
             {
@@ -41,6 +45,14 @@ namespace Assets.Scripts.Curves
 
                 FirstKeyTime = Math.Min(FirstKeyTime, t);
                 LastKeyTime = Math.Max(LastKeyTime, t);
+
+                if (initFirstKey)
+                {
+                    initFirstKey = false;
+                    FirstKeyValue = new Vector3(x, y, z);
+                }
+
+                LastKeyValue = new Vector3(x, y, z);
             }
         }
 
@@ -52,6 +64,9 @@ namespace Assets.Scripts.Curves
 
             FirstKeyTime = Math.Min(Math.Min(CurveX.keys[0].time, CurveY.keys[0].time), CurveZ.keys[0].time);
             LastKeyTime = Math.Max(Math.Max(CurveX.keys.Last().time, CurveY.keys.Last().time), CurveZ.keys.Last().time);
+
+            FirstKeyValue = new Vector3(CurveX.Evaluate(FirstKeyTime), CurveY.Evaluate(FirstKeyTime), CurveZ.Evaluate(FirstKeyTime));
+            LastKeyValue = new Vector3(CurveX.Evaluate(LastKeyTime), CurveY.Evaluate(LastKeyTime), CurveZ.Evaluate(LastKeyTime));
         }
 
         [UsedImplicitly] protected virtual void Update()

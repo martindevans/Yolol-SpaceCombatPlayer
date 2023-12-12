@@ -79,8 +79,10 @@
     <Compile Include="Assets\Scripts\Curves\DebugSphereRadius.cs" />
     <Compile Include="Assets\Scripts\CMCameraDistanceFromScrollWheel.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\PBFilled.cs" />
+    <Compile Include="Assets\Scripts\Events\GunFireEvent.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\SwitchAnim.cs" />
     <Compile Include="Assets\Scripts\DropMissileSquare.cs" />
+    <Compile Include="Assets\Scripts\AmmoDisplayController.cs" />
     <Compile Include="Assets\Scripts\ImpulseTriggerOnEnable.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scripts\DropFuelDisplay.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Assets\Scripts\ReplayController.cs" />
     <Compile Include="Assets\Scripts\Curves\BaseVector3PositionCurve.cs" />
     <Compile Include="Assets\Scripts\TimeController.cs" />
+    <Compile Include="Assets\Scripts\AlignToMovement.cs" />
     <Compile Include="Assets\Scripts\CameraMaster.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_DemoReactivation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -161,6 +164,7 @@
     <Compile Include="Assets\Scripts\Curves\ActualThrottleCurve.cs" />
     <Compile Include="Assets\Scripts\Curves\RadarRangeCurve.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\LaunchURL.cs" />
+    <Compile Include="Assets\Scripts\Events\ImpactDamageEvent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_ReplaceModelOnCollision.cs" />
@@ -188,6 +192,7 @@
     <Compile Include="Assets\Scripts\Curves\RadarDirectionCurve.cs" />
     <Compile Include="Assets\Scripts\AddToCinemachineTargetGroup.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_PhysXSetImpulse.cs" />
+    <Compile Include="Assets\Scripts\Events\BaseEventHandler.cs" />
     <Compile Include="Assets\Scripts\DropTransform.cs" />
     <Compile Include="Assets\Scripts\SetTimeScaleOnEnable.cs" />
     <Compile Include="Assets\Scripts\Curves\TransformPositionCurve.cs" />
@@ -207,12 +212,14 @@
     <Compile Include="Assets\Scripts\DropHulkCircle.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\DemoPanelAnim.cs" />
     <Compile Include="Assets\Scripts\Curves\GunTurretBearingCurve.cs" />
+    <Compile Include="Assets\Scripts\Events\GunReloadStartedEvent.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_Decal.cs" />
     <Compile Include="Assets\Scripts\DebugSphereVisualiser.cs" />
     <Compile Include="Assets\Scripts\Curves\DebugSphereColor.cs" />
     <Compile Include="Assets\Scripts\Activate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_CopyPosition.cs" />
+    <Compile Include="Assets\Scripts\Events\ReloadCompletedEvent.cs" />
     <Compile Include="Assets\Scripts\DestroyParentAfterDelay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_EffectEvent.cs" />
@@ -220,6 +227,7 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\RatingSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\ParticleSysem\RFX4_ParticleLight.cs" />
+    <Compile Include="Assets\Scripts\AmmoType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\Scripts\DropSquare.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />

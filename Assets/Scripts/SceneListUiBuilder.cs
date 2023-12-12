@@ -60,7 +60,7 @@ namespace Assets.Scripts
 
         private void Reorder()
         {
-            var yOff = 0;
+            var yOff = 0f;
 
             if (_showTitles)
             {
@@ -70,12 +70,12 @@ namespace Assets.Scripts
                     var title = Instantiate(TeamNameUiPrefab, GetComponent<RectTransform>());
                     title.GetComponentInChildren<TextMeshProUGUI>().text = _teams[group.Key];
                     title.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(20, YPosition(yOff), 0);
-                    yOff++;
+                    yOff += 0.5f;
 
                     foreach (var ship in group)
                     {
                         ship.RectTransform.anchoredPosition3D = new Vector3(20, YPosition(yOff), 0);
-                        yOff++;
+                        yOff += 1;
                     }
                 }
             }
@@ -84,14 +84,14 @@ namespace Assets.Scripts
                 foreach (var ship in _ships)
                 {
                     ship.RectTransform.anchoredPosition3D = new Vector3(20, YPosition(yOff), 0);
-                    yOff++;
+                    yOff += 1;
                 }
             }
         }
 
-        private float YPosition(int offset)
+        private float YPosition(float offset)
         {
-            return -10 - offset * 40;
+            return -10 - offset * 80;
         }
 
         private class ShipUI

@@ -24,6 +24,8 @@ namespace Assets.Scripts
 
         private bool _isHulk;
 
+        public string ShipName => _ship.name;
+
         private void OnEnable()
         {
             _cameraMaster = FindObjectOfType<CameraMaster>();

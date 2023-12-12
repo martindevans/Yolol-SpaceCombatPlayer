@@ -1,7 +1,6 @@
 using Assets.Scripts.Curves;
 using Shapes;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {

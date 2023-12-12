@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using Assets.Scripts.Curves;
+using Assets.Scripts.Events;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -24,9 +25,12 @@ namespace Assets.Scripts
         [SerializeField] public GameObject SpaceHulkPrefab;
         [SerializeField] public GameObject ExplosionPrefab;
         [SerializeField] public GameObject ShellPrefab;
+        [SerializeField] public GameObject APShellPrefab;
+        [SerializeField] public GameObject FlakShellPrefab;
         [SerializeField] public GameObject MissilePrefab;
         [SerializeField] public GameObject AsteroidPrefab;
         [SerializeField] public GameObject VictoryMarkerPrefab;
+        [SerializeField] public GameObject ImpactEffectPrefab;
 
         [UsedImplicitly] private void OnEnable()
         {
@@ -106,33 +110,41 @@ namespace Assets.Scripts
                 switch (type)
                 {
                     case "SpaceBattleShip":
-                        UiBuilder.AddSpaceShip(Create(id, curves, SpaceBattleshipPrefab), teamid, teamname);
+                        UiBuilder.AddSpaceShip(CreateEntity(id, curves, SpaceBattleshipPrefab), teamid, teamname);
                         break;
 
                     case "SpaceHulk":
-                        UiBuilder.AddSpaceHulk(Create(id, curves, SpaceHulkPrefab));
+                        UiBuilder.AddSpaceHulk(CreateEntity(id, curves, SpaceHulkPrefab));
                         break;
 
                     case "Explosion": {
-                        var go = Create(id, curves, ExplosionPrefab);
+                        var go = CreateEntity(id, curves, ExplosionPrefab);
                         go.GetComponent<TransformPositionCurve>().PostDestroy = false;
                         break;
                     }
 
                     case "Shell":
-                        Create(id, curves, ShellPrefab);
+                        CreateEntity(id, curves, ShellPrefab);
+                        break;
+
+                    case "APShell":
+                        CreateEntity(id, curves, APShellPrefab);
+                        break;
+
+                    case "FlakShell":
+                        CreateEntity(id, curves, FlakShellPrefab);
                         break;
 
                     case "Missile":
-                        Create(id, curves, MissilePrefab);
+                        CreateEntity(id, curves, MissilePrefab);
                         break;
 
                     case "Asteroid":
-                        Create(id, curves, AsteroidPrefab);
+                        CreateEntity(id, curves, AsteroidPrefab);
                         break;
 
                     case "VictoryMarker": {
-                        var go = Create(id, curves, VictoryMarkerPrefab);
+                        var go = CreateEntity(id, curves, VictoryMarkerPrefab);
                         var pos = go.GetComponent<TransformPositionCurve>();
                         if (pos)
                             pos.PostDestroy = false;
@@ -145,9 +157,49 @@ namespace Assets.Scripts
                 }
             }
             Debug.Log($"Entity Creation Time: {s.Elapsed.TotalMilliseconds}ms");
+
+            s.Restart();
+            if (replayFile.TryGetValue("Events", out var eventsToken))
+            {
+                foreach (var @event in (JArray)eventsToken)
+                {
+                    var timestamp = @event["Timestamp"].Value<ulong>();
+                    var type = @event["Type"].Value<string>();
+                    switch (type)
+                    {
+                        case "VictoryEvent":
+                            break;
+
+                        case "GunFireEvent":
+                            new GameObject(type + ":" + timestamp)
+                               .AddComponent<GunFireEvent>().Load(timestamp, @event);
+                            break;
+
+                        case "GunReloadStartedEvent":
+                            new GameObject(type + ":" + timestamp)
+                                .AddComponent<GunReloadStartedEvent>().Load(timestamp, @event);
+                            break;
+
+                        case "GunReloadCompletedEvent":
+                            new GameObject(type + ":" + timestamp)
+                               .AddComponent<ReloadCompletedEvent>().Load(timestamp, @event);
+                            break;
+
+                        case "ImpactDamageEvent":
+                            new GameObject(type + ":" + timestamp)
+                               .AddComponent<ImpactDamageEvent>().Load(timestamp, @event, this);
+                            break;
+
+                        default:
+                            Debug.LogError($"Unknown Event Type: `{type}`");
+                            break;
+                    }
+                }
+            }
+            Debug.Log($"Event Creation Time: {s.Elapsed.TotalMilliseconds}ms");
         }
 
-        [NotNull] private static GameObject Create(string id, [NotNull] JArray curves, [NotNull] GameObject prefab)
+        [NotNull] private static GameObject CreateEntity(string id, [NotNull] JArray curves, [NotNull] GameObject prefab)
         {
             // Instantiate as inactive, then set prefab back to whatever it was
             var wasActive = prefab.activeSelf;

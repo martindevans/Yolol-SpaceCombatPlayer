@@ -32,9 +32,10 @@ namespace Assets.Scripts
 
         [UsedImplicitly] private void OnEnable()
         {
+
+#if (UNITY_WEBGL && !UNITY_EDITOR) || UNITY_WEBGL_OVERRIDE
             if (!SuppressUrlLoading)
             {
-#if UNITY_WEBGL && !UNITY_EDITOR
                 // Load direct links
                 var url = Application.absoluteURL;
                 Debug.Log("Application.absoluteURL:" + url);
@@ -50,8 +51,8 @@ namespace Assets.Scripts
                         return;
                     }
                 }
-#else
             }
+#else
 
             var args = Environment.GetCommandLineArgs();
             var path = string.Join(" ", args.Skip(1));
