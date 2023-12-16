@@ -26,11 +26,11 @@ namespace Assets.Scripts
             if (Text == null)
                 return;
 
-            var t = TimeSpan.FromSeconds(Time.timeSinceLevelLoadAsDouble);
+            var t = TimeSpan.FromSeconds(ReplayClock.Instance.Time);
             var s = t.ToString("mm\\:ss\\:ff");
             Text.text = s;
 
-            if (Time.timeScale <= 0)
+            if (ReplayClock.Instance.TimeScale <= 0)
             {
                 _pausedTime += Time.unscaledDeltaTime * 2;
                 Text.color = (int)_pausedTime % 2 == 1

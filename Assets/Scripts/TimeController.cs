@@ -6,19 +6,27 @@ namespace Assets.Scripts
     public class TimeController
         : MonoBehaviour
     {
+        private bool _isSkipping;
+
         [UsedImplicitly] public void OnEnable()
         {
-            Time.timeScale = 1;
+            ReplayClock.Instance.TimeScale = 1;
         }
 
         [UsedImplicitly] private void OnDisable()
         {
-            Time.timeScale = 1;
+            ReplayClock.Instance.TimeScale = 1;
         }
 
         public void OnChangeSpeed(int speed)
         {
-            Time.timeScale = speed;
+            ReplayClock.Instance.TimeScale = speed;
+        }
+
+        public void OnStepFwd()
+        {
+            ReplayClock.Instance.TimeScale = 0;
+            ReplayClock.Instance.Step(0.1f);
         }
 
         public void Update()
@@ -27,16 +35,16 @@ namespace Assets.Scripts
                 return;
 
             if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Space))
-                Time.timeScale = 0;
+                OnChangeSpeed(0);
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
-                Time.timeScale = 1;
+                OnChangeSpeed(1);
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
-                Time.timeScale = 2;
+                OnChangeSpeed(4);
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
-                Time.timeScale = 6;
+                OnChangeSpeed(8);
         }
     }
 }

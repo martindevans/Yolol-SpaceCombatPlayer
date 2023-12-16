@@ -47,7 +47,7 @@ namespace Assets.Scripts.Curves
 
         [UsedImplicitly] protected virtual void Update()
         {
-            Value = _curve.Evaluate(Time.timeSinceLevelLoad) > 0.5f;
+            Value = _curve.Evaluate(ReplayClock.Instance.Time) > 0.5f;
         }
     }
 }

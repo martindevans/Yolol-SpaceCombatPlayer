@@ -21,7 +21,7 @@ namespace Assets.Scripts.Curves
 
             _transform ??= transform;
 
-            var t = Time.timeSinceLevelLoad;
+            var t = ReplayClock.Instance.Time;
 
             var active = !(PreDeactivate && t < FirstKeyTime);
             if (PostDestroy && t > LastKeyTime)

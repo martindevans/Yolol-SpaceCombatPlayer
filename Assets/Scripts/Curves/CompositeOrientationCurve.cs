@@ -40,7 +40,7 @@ namespace Assets.Scripts.Curves
         [UsedImplicitly]
         private void Update()
         {
-            var t = Time.timeSinceLevelLoad;
+            var t = ReplayClock.Instance.Time;
 
             var w = _curveW.Evaluate(t);
             var x = _curveX.Evaluate(t);

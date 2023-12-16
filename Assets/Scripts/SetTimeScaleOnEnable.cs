@@ -10,12 +10,12 @@ namespace Assets.Scripts
 
         private void FixedUpdate()
         {
-            Time.timeScale = Mathf.Max(TimeScale, Time.timeScale - TimeStepDown);
+            ReplayClock.Instance.TimeScale = Mathf.Max(TimeScale, ReplayClock.Instance.TimeScale - TimeStepDown);
         }
 
         private void OnDisable()
         {
-            Time.timeScale = 1;
+            ReplayClock.Instance.TimeScale = 1;
         }
     }
 }

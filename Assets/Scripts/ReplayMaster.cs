@@ -190,6 +190,10 @@ namespace Assets.Scripts
                                .AddComponent<ImpactDamageEvent>().Load(timestamp, @event, this);
                             break;
 
+                        case "LogMessageEvent":
+                            Debug.LogError("todo:LogMessageEvent");
+                            break;
+
                         default:
                             Debug.LogError($"Unknown Event Type: `{type}`");
                             break;

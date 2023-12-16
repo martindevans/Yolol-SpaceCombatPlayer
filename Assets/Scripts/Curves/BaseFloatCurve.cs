@@ -120,7 +120,7 @@ namespace Assets.Scripts.Curves
 
         [UsedImplicitly] protected virtual void Update()
         {
-            Value = Curve.Evaluate(Time.timeSinceLevelLoad);
+            Value = Curve.Evaluate(ReplayClock.Instance.Time);
         }
 
         public float Evaluate(float time)

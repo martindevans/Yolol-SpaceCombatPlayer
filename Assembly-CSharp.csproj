@@ -153,7 +153,6 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\ModalByScript.cs" />
     <Compile Include="Assets\Scripts\ShipUiElement.cs" />
     <Compile Include="Assets\Scripts\ButtonNameSetter.cs" />
-    <Compile Include="Assets\Scripts\Spin.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_MaterialQueue.cs" />
     <Compile Include="Assets\Starfield Skybox\Demo\Script\LookCamera.cs" />
     <Compile Include="Assets\Scripts\SetTmpTextFromName.cs" />
@@ -207,6 +206,7 @@
     <Compile Include="Assets\Scripts\Curves\ElementOrientationCurve.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\Curves\SphereColliderRadiusCurve.cs" />
+    <Compile Include="Assets\Scripts\ReplayClock.cs" />
     <Compile Include="Assets\Scripts\RadarTargetIndicator.cs" />
     <Compile Include="Assets\Scripts\Curves\BaseVector3DirectionCurve.cs" />
     <Compile Include="Assets\Scripts\DropHulkCircle.cs" />
@@ -223,6 +223,7 @@
     <Compile Include="Assets\Scripts\DestroyParentAfterDelay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_EffectEvent.cs" />
+    <Compile Include="Assets\Scripts\BaseSingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Curves\ElementXPositionCurve.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\RatingSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />

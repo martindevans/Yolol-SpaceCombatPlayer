@@ -36,7 +36,7 @@ namespace Assets.Scripts.Curves
 
         [UsedImplicitly] protected virtual void Update()
         {
-            var t = Time.timeSinceLevelLoad;
+            var t = ReplayClock.Instance.Time;
             var x = _curveX.Evaluate(t);
             var y = _curveY.Evaluate(t);
             var z = _curveZ.Evaluate(t);

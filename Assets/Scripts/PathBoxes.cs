@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Shapes;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
@@ -28,7 +27,7 @@ namespace Assets.Scripts
         {
             _parent = transform.parent;
             _frames.Clear();
-            _lastFrameTime = Time.time;
+            _lastFrameTime = ReplayClock.Instance.Time;
 
             base.OnEnable();
         }
@@ -38,11 +37,11 @@ namespace Assets.Scripts
             _parent ??= transform.parent;
             
             var pos = _parent.position;
-            var dist = _frames.Count == 0 ? float.PositiveInfinity : Vector3.Distance(pos, _frames[_frames.Count - 1].Position);
-            var time = Time.time - _lastFrameTime;
+            var dist = _frames.Count == 0 ? float.PositiveInfinity : Vector3.Distance(pos, _frames[^1].Position);
+            var time = ReplayClock.Instance.Time - _lastFrameTime;
             if (dist > 25 && time > 30)
             {
-                _lastFrameTime = Time.time;
+                _lastFrameTime = ReplayClock.Instance.Time;
                 _frames.Add(new Frame(_parent.position, _parent.rotation));
             }
         }

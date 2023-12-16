@@ -12,7 +12,7 @@ namespace Assets.Scripts.Events
 
         private void Update()
         {
-            var time = Time.timeSinceLevelLoad;
+            var time = ReplayClock.Instance.Time;
             if (time * 1000 > Timestamp)
             {
                 OnEvent();
