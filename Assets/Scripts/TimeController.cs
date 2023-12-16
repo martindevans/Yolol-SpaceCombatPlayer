@@ -6,8 +6,6 @@ namespace Assets.Scripts
     public class TimeController
         : MonoBehaviour
     {
-        private bool _isSkipping;
-
         [UsedImplicitly] public void OnEnable()
         {
             ReplayClock.Instance.TimeScale = 1;

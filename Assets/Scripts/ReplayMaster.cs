@@ -32,6 +32,8 @@ namespace Assets.Scripts
         [SerializeField] public GameObject VictoryMarkerPrefab;
         [SerializeField] public GameObject ImpactEffectPrefab;
 
+        public float VictoryTime { get; private set; }
+
         [UsedImplicitly] private void OnEnable()
         {
             if (File.Exists(UrlToLoad))
@@ -168,6 +170,7 @@ namespace Assets.Scripts
                     switch (type)
                     {
                         case "VictoryEvent":
+                            VictoryTime = timestamp / 1000f;
                             break;
 
                         case "GunFireEvent":

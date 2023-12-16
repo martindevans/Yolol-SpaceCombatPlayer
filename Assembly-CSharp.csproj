@@ -163,6 +163,7 @@
     <Compile Include="Assets\Scripts\Curves\ActualThrottleCurve.cs" />
     <Compile Include="Assets\Scripts\Curves\RadarRangeCurve.cs" />
     <Compile Include="Assets\Modern UI Pack\Scripts\LaunchURL.cs" />
+    <Compile Include="Assets\Scripts\TimeSliderController.cs" />
     <Compile Include="Assets\Scripts\Events\ImpactDamageEvent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
