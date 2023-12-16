@@ -194,7 +194,9 @@ namespace Assets.Scripts
                             break;
 
                         case "LogMessageEvent":
-                            Debug.LogError("todo:LogMessageEvent");
+                            new GameObject(type + ":" + timestamp)
+                               .AddComponent<LogMessageEvent>().Load(timestamp, @event);
+                            break;
                             break;
 
                         default:

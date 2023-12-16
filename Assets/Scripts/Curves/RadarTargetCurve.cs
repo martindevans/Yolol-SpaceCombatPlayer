@@ -8,9 +8,9 @@ namespace Assets.Scripts.Curves
     public class RadarTargetCurve
         : MonoBehaviour, ICurveDeserialiser
     {
-        private readonly AnimationCurve _curveX = new AnimationCurve();
-        private readonly AnimationCurve _curveY = new AnimationCurve();
-        private readonly AnimationCurve _curveZ = new AnimationCurve();
+        private readonly AnimationCurve _curveX = new();
+        private readonly AnimationCurve _curveY = new();
+        private readonly AnimationCurve _curveZ = new();
 
         public Vector3 Value { get; private set; }
 

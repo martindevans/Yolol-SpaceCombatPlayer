@@ -39,10 +39,10 @@ namespace Assets.Scripts
                 OnChangeSpeed(1);
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
-                OnChangeSpeed(4);
+                OnChangeSpeed(5);
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
-                OnChangeSpeed(8);
+                OnChangeSpeed(10);
         }
     }
 }

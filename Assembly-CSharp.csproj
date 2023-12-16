@@ -87,6 +87,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scripts\DropFuelDisplay.cs" />
     <Compile Include="Assets\Scripts\DropAsteroidCircle.cs" />
+    <Compile Include="Assets\Scripts\Events\LogMessageEvent.cs" />
     <Compile Include="Assets\Scripts\SetScaleFromSphereSize.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_ShaderColorGradient.cs" />
     <Compile Include="Assets\Scripts\LoadReplayOnClick.cs" />
