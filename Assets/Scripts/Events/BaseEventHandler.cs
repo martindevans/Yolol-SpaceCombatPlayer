@@ -43,5 +43,19 @@ namespace Assets.Scripts.Events
 
             return ammoDisplay;
         }
+
+        [CanBeNull]
+        protected ShipRoot FindShip(string entityName)
+        {
+            var ships = FindObjectsByType<ShipRoot>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            var ship = (from result in ships where result != null && result.name == entityName select result).FirstOrDefault();
+            if (ship == null)
+            {
+                Debug.LogWarning($"Could not find `ShipRoot` for '{entityName}'");
+                return null;
+            }
+
+            return ship;
+        }
     }
 }

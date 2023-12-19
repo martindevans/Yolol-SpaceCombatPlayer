@@ -197,6 +197,11 @@ namespace Assets.Scripts
                             new GameObject(type + ":" + timestamp)
                                .AddComponent<LogMessageEvent>().Load(timestamp, @event);
                             break;
+
+                        case "PausePlaybackEvent":
+                            new GameObject(type + ":" + timestamp)
+                               .AddComponent<PausePlaybackEvent>().Load(timestamp, @event);
+                            break;
                             break;
 
                         default:

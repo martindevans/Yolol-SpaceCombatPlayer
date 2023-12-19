@@ -24,7 +24,7 @@ namespace Assets.Scripts
 
         private bool _isHulk;
 
-        public string ShipName => _ship.name;
+        public string ShipName => _ship != null ? _ship.name : "";
 
         private void OnEnable()
         {

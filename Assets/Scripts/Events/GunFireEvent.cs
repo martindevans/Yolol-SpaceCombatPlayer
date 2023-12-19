@@ -23,10 +23,12 @@ namespace Assets.Scripts.Events
         protected override void OnEvent()
         {
             var ammoDisplay = FindAmmoDisplay(_entity, _index);
-            if (ammoDisplay == null)
-                return;
+            if (ammoDisplay != null)
+                ammoDisplay.FireEvent(_magazineCount);
 
-            ammoDisplay.FireEvent(_magazineCount);
+            var ship = FindShip(_entity);
+            if (ship != null)
+                ship.GunFireEvent(_index);
         }
     }
 }
