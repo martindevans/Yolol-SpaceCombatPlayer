@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Events
 {
-    public class ImpactDamageEvent
+    public sealed class ImpactDamageEvent
         : BaseEventHandler
     {
         protected override bool AutoDestruct => false;

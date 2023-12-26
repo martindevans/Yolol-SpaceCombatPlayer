@@ -202,6 +202,20 @@ namespace Assets.Scripts
                             new GameObject(type + ":" + timestamp)
                                .AddComponent<PausePlaybackEvent>().Load(timestamp, @event);
                             break;
+
+                        case "DebugDestroy":
+                            new GameObject(type + ":" + timestamp)
+                               .AddComponent<DebugDestroy>().Load(timestamp, @event);
+                            break;
+
+                        case "DebugLineCreate":
+                            new GameObject(type + ":" + timestamp)
+                               .AddComponent<DebugLineCreate>().Load(timestamp, @event);
+                            break;
+
+                        case "DebugSphereCreate":
+                            new GameObject(type + ":" + timestamp)
+                               .AddComponent<DebugSphereCreate>().Load(timestamp, @event);
                             break;
 
                         default:

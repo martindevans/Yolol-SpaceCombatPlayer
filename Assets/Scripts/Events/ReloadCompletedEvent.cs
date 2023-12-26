@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Events
 {
-    public class ReloadCompletedEvent
+    public sealed class ReloadCompletedEvent
         : BaseEventHandler
     {
         protected override bool AutoDestruct => true;

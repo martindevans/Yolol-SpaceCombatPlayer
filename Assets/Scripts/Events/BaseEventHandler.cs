@@ -10,7 +10,7 @@ namespace Assets.Scripts.Events
         public ulong Timestamp { get; protected set; }
         protected abstract bool AutoDestruct { get; }
 
-        private void Update()
+        protected virtual void Update()
         {
             var time = ReplayClock.Instance.Time;
             if (time * 1000 > Timestamp)
@@ -44,8 +44,7 @@ namespace Assets.Scripts.Events
             return ammoDisplay;
         }
 
-        [CanBeNull]
-        protected ShipRoot FindShip(string entityName)
+        [CanBeNull] protected ShipRoot FindShip(string entityName)
         {
             var ships = FindObjectsByType<ShipRoot>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             var ship = (from result in ships where result != null && result.name == entityName select result).FirstOrDefault();

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Events
 {
-    public class LogMessageEvent
+    public sealed class LogMessageEvent
         : BaseEventHandler
     {
         public string Prefix { get; private set; }

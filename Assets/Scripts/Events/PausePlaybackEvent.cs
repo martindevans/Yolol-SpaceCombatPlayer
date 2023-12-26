@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Events
 {
-    public class PausePlaybackEvent
+    public sealed class PausePlaybackEvent
         : BaseEventHandler
     {
         protected override bool AutoDestruct => true;

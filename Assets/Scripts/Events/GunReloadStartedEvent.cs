@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Events
 {
-    public class GunReloadStartedEvent
+    public sealed class GunReloadStartedEvent
         : BaseEventHandler
     {
         protected override bool AutoDestruct => true;
