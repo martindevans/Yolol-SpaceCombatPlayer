@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ClearUrlParameters.cs" />
+    <Compile Include="Assets\Scripts\Extensions\StringExtensions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\TimerDisplay.cs" />
     <Compile Include="Assets\Scripts\LoadLocalReplayButton.cs" />
@@ -170,8 +171,8 @@
     <Compile Include="Assets\Modern UI Pack\Scripts\LaunchURL.cs" />
     <Compile Include="Assets\Scripts\TimeSliderController.cs" />
     <Compile Include="Assets\Scripts\Events\ImpactDamageEvent.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Events\DebugLineCreate.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_ReplaceModelOnCollision.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Assets\Scripts\Events\ReloadCompletedEvent.cs" />
     <Compile Include="Assets\Scripts\DestroyParentAfterDelay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+    <Compile Include="Assets\Scripts\NameplateSetter.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Scripts\RFX4_EffectEvent.cs" />
     <Compile Include="Assets\Scripts\BaseSingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Curves\ElementXPositionCurve.cs" />
