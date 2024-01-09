@@ -57,9 +57,9 @@ namespace Assets.Scripts.Events
             _line.Color = _color;
         }
 
-        public void DestroyEvent(DebugDestroy destroy)
+        public void DestroyEvent(ulong timestamp)
         {
-            _destroy = destroy.Timestamp;
+            _destroy = timestamp;
         }
 
         protected override void OnEvent()

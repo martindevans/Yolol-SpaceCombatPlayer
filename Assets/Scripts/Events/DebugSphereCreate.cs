@@ -48,9 +48,9 @@ namespace Assets.Scripts.Events
             transform.position = _position;
         }
 
-        public void DestroyEvent(DebugDestroy destroy)
+        public void DestroyEvent(ulong timestamp)
         {
-            _destroy = destroy.Timestamp;
+            _destroy = timestamp;
         }
 
         protected override void OnEvent()

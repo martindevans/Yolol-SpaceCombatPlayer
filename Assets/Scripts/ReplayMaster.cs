@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -33,6 +34,8 @@ namespace Assets.Scripts
         [SerializeField] public GameObject ImpactEffectPrefab;
 
         public float VictoryTime { get; private set; }
+
+        private Dictionary<long, IDebugDestroyNotificationReceiver> _debugShapes = new();
 
         [UsedImplicitly] private void OnEnable()
         {
@@ -204,18 +207,33 @@ namespace Assets.Scripts
                             break;
 
                         case "DebugDestroy":
-                            new GameObject(type + ":" + timestamp)
-                               .AddComponent<DebugDestroy>().Load(timestamp, @event);
+                            var id = @event["ID"].Value<int>();
+                            if (_debugShapes.TryGetValue(id, out var receiver))
+                            {
+                                receiver.DestroyEvent(timestamp);
+                                Destroy(gameObject, 0.1f);
+                            }
+                            else
+                            {
+                                Debug.LogWarning($"DebugDestroy could not find event for ID '{id}'");
+                            }
                             break;
 
                         case "DebugLineCreate":
-                            new GameObject(type + ":" + timestamp)
-                               .AddComponent<DebugLineCreate>().Load(timestamp, @event);
+                            var line = new GameObject(type + ":" + timestamp).AddComponent<DebugLineCreate>();
+                            line.Load(timestamp, @event);
+                            _debugShapes.Add(line.ID, line);
                             break;
 
                         case "DebugSphereCreate":
-                            new GameObject(type + ":" + timestamp)
-                               .AddComponent<DebugSphereCreate>().Load(timestamp, @event);
+                            var sphere = new GameObject(type + ":" + timestamp).AddComponent<DebugSphereCreate>();
+                            sphere.Load(timestamp, @event);
+                            _debugShapes.Add(sphere.ID, sphere);
+                            break;
+
+                        case "MissileLauncherLaunch":
+                            var launch = new GameObject(type + ":" + timestamp).AddComponent<MissileLauncherLaunch>();
+                            launch.Load(timestamp, @event);
                             break;
 
                         default:

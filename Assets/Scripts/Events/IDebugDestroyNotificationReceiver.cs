@@ -4,6 +4,6 @@
     {
         public int ID { get; }
 
-        public void DestroyEvent(DebugDestroy destroy);
+        public void DestroyEvent(ulong timestamp);
     }
 }

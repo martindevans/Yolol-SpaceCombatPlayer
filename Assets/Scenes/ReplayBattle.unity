@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.011487516, g: 0.011793288, b: 0.015665727, a: 1}
+  m_IndirectSpecularColor: {r: 0.0115807615, g: 0.011836697, b: 0.01568481, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -867,14 +867,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603000855}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.35370836, y: 0.6444606, z: -0.5086432, w: -0.4481552}
+  m_LocalRotation: {x: -0.35578203, y: 0.6426255, z: -0.507195, w: -0.45078248}
   m_LocalPosition: {x: 1500, y: 6000, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1287701850}
   m_Father: {fileID: 1715268976}
-  m_LocalEulerAnglesHint: {x: 76.564835, y: 249.7554, z: 0}
+  m_LocalEulerAnglesHint: {x: 76.56487, y: 250.09702, z: -0.0000073491897}
 --- !u!114 &603000857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_LookaheadIgnoreY: 0
   m_HorizontalDamping: 3.07
   m_VerticalDamping: 3.38
-  m_ScreenX: 0.573772
+  m_ScreenX: 0.514
   m_ScreenY: 0.5027474
   m_DeadZoneWidth: 0.014
   m_DeadZoneHeight: 0.014
