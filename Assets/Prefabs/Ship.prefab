@@ -11966,7 +11966,7 @@ MonoBehaviour:
   SensitivityY: 5
   SensitivityScroll: 99
   MinZoom: 35
-  MaxZoom: 400
+  MaxZoom: 600
   MaxYOrbitFactor: 1
   InvertY: 1
 --- !u!1 &3808639763847733832
@@ -12787,7 +12787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
+  m_BindingMode: 4
   m_FollowOffset: {x: -157, y: -19.65, z: -157}
   m_XDamping: 2.29
   m_YDamping: 2.16

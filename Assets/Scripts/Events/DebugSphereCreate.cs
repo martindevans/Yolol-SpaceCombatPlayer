@@ -33,9 +33,9 @@ namespace Assets.Scripts.Events
 
             var c = @event["Color"];
             _color = new Color(
-                c["X"].Value<float>(),
-                c["Y"].Value<float>(),
-                c["Z"].Value<float>(),
+                Mathf.Clamp01(c["X"].Value<float>()),
+                Mathf.Clamp01(c["Y"].Value<float>()),
+                Mathf.Clamp01(c["Z"].Value<float>()),
                 0.1f
             );
 
