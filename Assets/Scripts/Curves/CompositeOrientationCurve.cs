@@ -1,4 +1,6 @@
 using System;
+using Assets.Scripts.Serialization;
+using System.IO;
 using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -16,6 +18,21 @@ namespace Assets.Scripts.Curves
         [CanBeNull] private Transform _transform;
 
         public void LoadCurve(JToken curve)
+        {
+            var type = curve["Type"].Value<string>();
+
+            switch (type)
+            {
+                case "Quaternion":
+                    LoadQuaternion(curve);
+                    break;
+
+                default:
+                    throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has type `{type}` expected `Quaternion`");
+            }
+        }
+
+        private void LoadQuaternion(JToken curve)
         {
             var type = curve["Type"].Value<string>();
             if (type != "Quaternion")

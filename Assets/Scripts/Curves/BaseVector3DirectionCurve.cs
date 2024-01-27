@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using Assets.Scripts.Serialization;
 using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -17,9 +19,24 @@ namespace Assets.Scripts.Curves
         public void LoadCurve(JToken curve)
         {
             var type = curve["Type"].Value<string>();
-            if (type != "Vector3")
-                throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has type `{type}` expected `Vector3`");
 
+            switch (type)
+            {
+                case "Vector":
+                    LoadVector3(curve);
+                    break;
+
+                case "NVector3":
+                    LoadNVector3(curve);
+                    break;
+
+                default:
+                    throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has type `{type}` expected `Vector3` or `NVector3`");
+            }
+        }
+
+        private void LoadVector3(JToken curve)
+        {
             var keys = (JArray)curve["Keys"];
             foreach (var key in keys)
             {
@@ -31,6 +48,26 @@ namespace Assets.Scripts.Curves
                 _curveX.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
                 _curveY.AddKey(new Keyframe(t, y, 0, 0, 0, 0));
                 _curveZ.AddKey(new Keyframe(t, z, 0, 0, 0, 0));
+            }
+        }
+
+        private void LoadNVector3(JToken curve)
+        {
+            var data = curve["Data"].Value<string>();
+            using (var stream = new MemoryStream(Convert.FromBase64String(data)))
+            {
+                stream.Position = 0;
+                var reader = new BinaryDeserializer(stream);
+
+                while (stream.Position != stream.Length)
+                {
+                    var t = reader.ReadVariableUint64() / 1000f;
+                    var vector = reader.ReadNormalizedVector3();
+
+                    _curveX.AddKey(new Keyframe(t, vector.X, 0, 0, 0, 0));
+                    _curveY.AddKey(new Keyframe(t, vector.Y, 0, 0, 0, 0));
+                    _curveZ.AddKey(new Keyframe(t, vector.Z, 0, 0, 0, 0));
+                }
             }
         }
 
