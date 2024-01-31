@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -67,31 +68,36 @@ namespace Assets.Scripts.Curves
 
         private void LoadBase64Compressed_R16([NotNull] JToken curve)
         {
-            var rangeMin = curve["Min"].Value<float>();
-            var rangeMax = curve["Max"].Value<float>();
-
-            var keys = KeysFromBase64(curve["KeysData"].Value<string>());
-            var values = ValuesFromBase64(curve["ValueData"].Value<string>(), rangeMin, rangeMax);
-
-            MinValue = float.MaxValue;
-            MaxValue = float.MinValue;
-
-            MinTime = float.MaxValue;
-            MaxTime = float.MinValue;
-
-            for (var i = 0; i < keys.Length; i++)
+            var @const = curve["Const"];
+            if (@const != null)
             {
-                var t = keys[i] / 1000f;
-                var x = values[i];
-
-                Curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
-
-                MinValue = Math.Min(MinValue, x);
-                MaxValue = Math.Max(MaxValue, x);
-
-                MinTime = Math.Min(MinTime, t);
-                MaxTime = Math.Max(MaxTime, t);
+                var val = @const.Value<float>();
+                var t0 = curve["T"][0].Value<float>();
+                var t1 = curve["T"][1].Value<float>();
+                Curve.AddKey(t0, val);
+                Curve.AddKey(t1, val);
             }
+            else
+            {
+                var rangeMin = curve["Min"].Value<float>();
+                var rangeMax = curve["Max"].Value<float>();
+
+                var keys = KeysFromBase64(curve["KeysData"].Value<string>());
+                var values = ValuesFromBase64(curve["ValueData"].Value<string>(), rangeMin, rangeMax);
+
+                for (var i = 0; i < keys.Length; i++)
+                {
+                    var t = keys[i] / 1000f;
+                    var x = values[i];
+
+                    Curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
+                }
+            }
+
+            MinValue = Curve.keys.Select(a => a.value).Min();
+            MinValue = Curve.keys.Select(a => a.value).Max();
+            MinTime = Curve.keys.Select(a => a.time).Min();
+            MaxTime = Curve.keys.Select(a => a.time).Max();
         }
 
         private void LoadSimpleSingle([NotNull] JToken curve)
