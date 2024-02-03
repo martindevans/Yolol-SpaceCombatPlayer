@@ -28,6 +28,11 @@ namespace Assets.Scripts.Curves
                 LoadBase64Compressed_R16(curve);
             else
                 throw new ArgumentException($"Curve `{curve["Name"].Value<string>()}` has typed `{type}` expected `Single` or `Single_r16`");
+
+            MinValue = Curve.keys.Select(a => a.value).Min();
+            MaxValue = Curve.keys.Select(a => a.value).Max();
+            MinTime = Curve.keys.Select(a => a.time).Min();
+            MaxTime = Curve.keys.Select(a => a.time).Max();
         }
 
         [NotNull] private static uint[] KeysFromBase64([NotNull] string base64)
@@ -93,21 +98,10 @@ namespace Assets.Scripts.Curves
                     Curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
                 }
             }
-
-            MinValue = Curve.keys.Select(a => a.value).Min();
-            MinValue = Curve.keys.Select(a => a.value).Max();
-            MinTime = Curve.keys.Select(a => a.time).Min();
-            MaxTime = Curve.keys.Select(a => a.time).Max();
         }
 
         private void LoadSimpleSingle([NotNull] JToken curve)
         {
-            MinValue = float.MaxValue;
-            MaxValue = float.MinValue;
-
-            MinTime = float.MaxValue;
-            MaxTime = float.MinValue;
-
             var keys = (JArray)curve["Keys"];
             foreach (var key in keys)
             {
@@ -115,12 +109,6 @@ namespace Assets.Scripts.Curves
                 var x = (float?)key["V"] ?? 0;
 
                 Curve.AddKey(new Keyframe(t, x, 0, 0, 0, 0));
-
-                MinValue = Math.Min(MinValue, x);
-                MaxValue = Math.Max(MaxValue, x);
-
-                MinTime = Math.Min(MinTime, t);
-                MaxTime = Math.Max(MaxTime, t);
             }
         }
 
