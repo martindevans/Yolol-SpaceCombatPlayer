@@ -13,7 +13,7 @@ namespace Assets.Scripts
 
         [UsedImplicitly] private void OnDisable()
         {
-            ReplayClock.Instance.TimeScale = 1;
+            //ReplayClock.Instance.TimeScale = 1;
         }
 
         public void OnChangeSpeed(int speed)

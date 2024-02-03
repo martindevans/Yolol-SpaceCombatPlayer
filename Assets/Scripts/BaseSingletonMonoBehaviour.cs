@@ -18,6 +18,7 @@ namespace Assets.Scripts
                 switch (instances.Length)
                 {
                     case 0:
+                        Debug.Log($"Created new Singleton<{typeof(TSelf).Name}>");
                         _instance = new GameObject($"Singleton<{typeof(TSelf).Name}>").AddComponent<TSelf>();
                         break;
 

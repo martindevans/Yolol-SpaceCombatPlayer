@@ -22,7 +22,7 @@ namespace Assets.Scripts
 
         private void Update()
         {
-            if (!_pointer)
+            if (!_pointer && _master.VictoryTime != 0)
                 Slider.value = Mathf.Clamp01(_clock.Time / _master.VictoryTime);
         }
 

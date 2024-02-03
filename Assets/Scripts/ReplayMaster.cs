@@ -9,8 +9,10 @@ using Assets.Scripts.Events;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 namespace Assets.Scripts
@@ -21,6 +23,10 @@ namespace Assets.Scripts
         public static string UrlToLoad = "";
 
         [SerializeField] public SceneListUiBuilder UiBuilder;
+
+        [SerializeField] public TextMeshProUGUI ProgressText;
+        [SerializeField] public Slider ProgressSlider;
+        [SerializeField] public GameObject LoadingOverlay;
 
         [SerializeField] public GameObject SpaceBattleshipPrefab;
         [SerializeField] public GameObject SpaceHulkPrefab;
@@ -35,7 +41,7 @@ namespace Assets.Scripts
 
         public float VictoryTime { get; private set; }
 
-        private Dictionary<long, IDebugDestroyNotificationReceiver> _debugShapes = new();
+        private readonly Dictionary<long, IDebugDestroyNotificationReceiver> _debugShapes = new();
 
         [UsedImplicitly] private void OnEnable()
         {
@@ -47,62 +53,96 @@ namespace Assets.Scripts
 
         private IEnumerator LoadLocalFile()
         {
-            using (var load = File.OpenRead(UrlToLoad))
-                LoadStream(load);
-
+            ReplayClock.Instance.TimeScale = 0;
+            {
+                using (var load = File.OpenRead(UrlToLoad))
+                    LoadStream(load);
+            }
+            ReplayClock.Instance.TimeScale = 1;
+            LoadingOverlay.SetActive(false);
             yield break;
         }
 
         private IEnumerator LoadUrl()
         {
-            using var www = UnityWebRequest.Get(UrlToLoad);
-
-            yield return www.SendWebRequest();
-            yield return new WaitForSecondsRealtime(0.215f);
-
-            while (www.result == UnityWebRequest.Result.InProgress)
-                yield return null;
-
-            switch (www.result)
+            ReplayClock.Instance.TimeScale = 0;
             {
-                default:
-                    throw new ArgumentOutOfRangeException();
+                Debug.Log("Sending UnityWebRequest");
+                ProgressText.text = "Downloading";
+                using var www = UnityWebRequest.Get(UrlToLoad);
+                www.SendWebRequest();
 
-                case UnityWebRequest.Result.InProgress:
-                    throw new InvalidOperationException("WebRequest was in progress after completing");
+                Debug.Log("Waiting for download completion");
+                ProgressSlider.value = 0;
+                while (www.result == UnityWebRequest.Result.InProgress)
+                {
+                    ProgressSlider.value = www.downloadProgress;
+                    Debug.Log($"Download progress: {www.downloadProgress}");
+                    yield return null;
+                }
+                ProgressSlider.value = 1;
 
-                case UnityWebRequest.Result.DataProcessingError:
-                case UnityWebRequest.Result.ProtocolError:
-                case UnityWebRequest.Result.ConnectionError:
-                    Debug.LogError($"Download Failed!\n{www.error}");
-                    break;
+                switch (www.result)
+                {
+                    default:
+                        ProgressText.text = "Download Failed!";
+                        Debug.LogError($"Download Failed!\n{www.result}");
+                        throw new ArgumentOutOfRangeException();
 
-                case UnityWebRequest.Result.Success: {
-                    LoadStream(new MemoryStream(www.downloadHandler.data));
-                    yield break;
+                    case UnityWebRequest.Result.InProgress:
+                        ProgressText.text = "Download Failed!";
+                        Debug.LogError($"Download Failed!\nWebRequest was in progress after completing");
+                        throw new InvalidOperationException("WebRequest was in progress after completing");
+
+                    case UnityWebRequest.Result.DataProcessingError:
+                    case UnityWebRequest.Result.ProtocolError:
+                    case UnityWebRequest.Result.ConnectionError:
+                        ProgressText.text = $"Download Failed! ({www.error})";
+                        Debug.LogError($"Download Failed!\n{www.error}");
+                        break;
+
+                    case UnityWebRequest.Result.Success:
+                    {
+                        LoadStream(new MemoryStream(www.downloadHandler.data));
+                        break;
+                    }
                 }
             }
+            LoadingOverlay.SetActive(false);
+            ReplayClock.Instance.TimeScale = 1;
         }
 
         private void LoadStream([NotNull] Stream stream)
         {
-            using var zip = new DeflateStream(stream, CompressionMode.Decompress);
-            using var reader = new StreamReader(zip);
-            using var json = new JsonTextReader(reader);
+            try
+            {
+                ProgressText.text = "Decompressing";
+                using var zip = new DeflateStream(stream, CompressionMode.Decompress);
+                using var reader = new StreamReader(zip);
+                using var json = new JsonTextReader(reader);
 
-            var s = new Stopwatch();
-            s.Start();
-            var replayFile = (JObject)JToken.ReadFrom(json);
-            Debug.Log($"JSON Decompress/Parse Time: {s.Elapsed.TotalMilliseconds}ms");
+                ProgressText.text = "Parsing JSON";
+                var s = new Stopwatch();
+                s.Start();
+                var replayFile = (JObject)JToken.ReadFrom(json);
+                Debug.Log($"JSON Decompress/Parse Time: {s.Elapsed.TotalMilliseconds}ms");
 
-            CreateEntities(replayFile);
+                CreateEntities(replayFile);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogException(ex);
+                throw;
+            }
         }
 
         private void CreateEntities([NotNull] JObject replayFile)
         {
             var s = new Stopwatch();
 
+            ProgressText.text = "Loading Entities";
             s.Start();
+            var loadCount = 0;
             foreach (var entity in (JArray)replayFile["Entities"])
             {
                 var id = entity["ID"].Value<string>();
@@ -160,9 +200,12 @@ namespace Assets.Scripts
                         Debug.LogError($"Unknown Entity Type: `{type}`");
                         break;
                 }
-            }
-            Debug.Log($"Entity Creation Time: {s.Elapsed.TotalMilliseconds}ms");
 
+                loadCount++;
+            }
+            Debug.Log($"Entity Creation Time: {s.Elapsed.TotalMilliseconds}ms for {loadCount} entities");
+
+            ProgressText.text = "Loading Events";
             s.Restart();
             if (replayFile.TryGetValue("Events", out var eventsToken))
             {
