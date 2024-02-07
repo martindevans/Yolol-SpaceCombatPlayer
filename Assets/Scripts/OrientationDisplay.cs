@@ -1,7 +1,6 @@
 using Shapes;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Assets.Scripts
 {
@@ -15,7 +14,9 @@ namespace Assets.Scripts
 
         public override void DrawShapes(Camera cam)
         {
-            _parent ??= transform.parent;
+            if (_parent == null)
+                _parent = transform.parent;
+
             var bot = new Vector3(_parent.position.x, 0, _parent.position.z);
 
             var fwd = -math.normalizesafe(((float3)_parent.forward).xz);

@@ -15,7 +15,9 @@ namespace Assets.Scripts
 
         private void OnDisable()
         {
-            ReplayClock.Instance.TimeScale = 1;
+            var instance = ReplayClock.TryGetInstance();
+            if (instance != null)
+                instance.TimeScale = 1;
         }
     }
 }

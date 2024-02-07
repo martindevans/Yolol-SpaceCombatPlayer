@@ -37,6 +37,11 @@ namespace Assets.Scripts
             }
         }
 
+        public static TSelf TryGetInstance()
+        {
+            return _instance;
+        }
+
         protected virtual void Awake()
         {
             if (_instance == null)
